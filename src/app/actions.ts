@@ -25,7 +25,8 @@ export const signUpAction = async (formData: FormData) => {
       data: {
         full_name: fullName,
         email: email,
-      }
+      },
+      emailRedirectTo: undefined,
     },
   });
 
@@ -33,11 +34,7 @@ export const signUpAction = async (formData: FormData) => {
     return encodedRedirect("error", "/sign-up", error.message);
   }
 
-  return encodedRedirect(
-    "success",
-    "/sign-up",
-    "Thanks for signing up! Please check your email for a verification link.",
-  );
+  return redirect("/dashboard");
 };
 
 export const signInAction = async (formData: FormData) => {
