@@ -15,7 +15,7 @@ interface MetricCardProps {
 function useCountUp(target: number, duration: number = 1200, delay: number = 0) {
   const [count, setCount] = useState(0);
   const startTime = useRef<number | null>(null);
-  const animationFrame = useRef<number>();
+  const animationFrame = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
