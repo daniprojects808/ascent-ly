@@ -39,15 +39,26 @@ export default function AddApplicationDialog({
   onSubmit,
 }: AddApplicationDialogProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    company_name: string;
+    position_title: string;
+    salary_min: number | undefined;
+    salary_max: number | undefined;
+    location: string;
+    status: ApplicationStatus;
+    work_type: string;
+    experience_level: string;
+    industry: string;
+    notes: string;
+  }>({
     company_name: "",
     position_title: "",
-    salary_min: undefined as number | undefined,
-    salary_max: undefined as number | undefined,
+    salary_min: undefined,
+    salary_max: undefined,
     location: "",
-    status: "not_started" as const,
-    work_type: "" as string,
-    experience_level: "" as string,
+    status: "not_started",
+    work_type: "",
+    experience_level: "",
     industry: "",
     notes: "",
   });
@@ -70,7 +81,7 @@ export default function AddApplicationDialog({
         salary_min: undefined,
         salary_max: undefined,
         location: "",
-        status: "not_started",
+        status: "not_started" as ApplicationStatus,
         work_type: "",
         experience_level: "",
         industry: "",

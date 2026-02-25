@@ -20,7 +20,7 @@ import KanbanColumn from "./kanban-column";
 import AddApplicationDialog from "./add-application-dialog";
 import { ApplicationModal } from "./application-modal";
 import CollapsibleSidebar from "./collapsible-sidebar";
-import type { Application } from "@/types/application";
+import type { Application, ApplicationStatus } from "@/types/application";
 import {
   DndContext,
   DragOverlay,
@@ -88,7 +88,7 @@ export default function DashboardClient({
       .eq("user_id", userId)
       .order("created_at", { ascending: false });
 
-    if (data) setApplications(data);
+    if (data) setApplications(data as unknown as Application[]);
     setLoading(false);
   }
 
@@ -164,20 +164,22 @@ export default function DashboardClient({
     showFavoritesOnly;
 
   async function handleStatusChange(id: string, newStatus: string) {
+    const validStatus = newStatus as ApplicationStatus;
     await supabase
       .from("applications")
       .update({ status: newStatus })
       .eq("id", id);
 
     setApplications((prev) =>
-      prev.map((app) => (app.id === id ? { ...app, status: newStatus } : app))
+      prev.map((app) => (app.id === id ? { ...app, status: validStatus } : app))
     );
   }
 
   async function handleAddApplication(data: Partial<Application>) {
+    const insertData = { ...data, user_id: userId } as Record<string, unknown>;
     const { data: newApp, error } = await supabase
       .from("applications")
-      .insert([{ ...data, user_id: userId }])
+      .insert([insertData])
       .select()
       .single();
 
@@ -187,7 +189,7 @@ export default function DashboardClient({
     }
 
     if (newApp) {
-      setApplications((prev) => [newApp, ...prev]);
+      setApplications((prev) => [newApp as unknown as Application, ...prev]);
     }
   }
 
