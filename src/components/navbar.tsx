@@ -1,14 +1,21 @@
 import Link from 'next/link'
-import { createClient } from '../../supabase/server'
+import { createClient } from '@/../supabase/server'
 import { Button } from './ui/button'
-import { User, UserCircle } from 'lucide-react'
 import UserProfile from './user-profile'
+import type { User } from '@supabase/supabase-js'
 
-export default async function Navbar() {
-  const supabase = createClient()
+interface NavbarProps {
+  user?: User | null;
+}
 
-  const { data: { user } } = await (await supabase).auth.getUser()
-
+export default async function Navbar({ user: userProp }: NavbarProps = {}) {
+  // Only fetch user if not passed as a prop (avoids duplicate auth calls)
+  let user = userProp;
+  if (user === undefined) {
+    const supabase = await createClient();
+    const { data } = await supabase.auth.getUser();
+    user = data.user;
+  }
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white py-2">

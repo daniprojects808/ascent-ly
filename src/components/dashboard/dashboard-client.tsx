@@ -69,7 +69,8 @@ export default function DashboardClient({
     experience: [],
   });
   const [activeId, setActiveId] = useState<string | null>(null);
-  const supabase = createClient();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const supabase = useMemo(() => createClient(), []);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -141,6 +142,12 @@ export default function DashboardClient({
   const completed = filteredApplications.filter(
     (a) => a.status === "completed"
   );
+
+  // Metric counts derived from unfiltered applications
+  const totalCount = applications.length;
+  const notStartedCount = applications.filter((a) => a.status === "not_started").length;
+  const inProgressCount = applications.filter((a) => a.status === "in_progress").length;
+  const completedCount = applications.filter((a) => a.status === "completed").length;
 
   function toggleFilter(type: "workType" | "experience", value: string) {
     setActiveFilters((prev) => ({
@@ -289,7 +296,7 @@ export default function DashboardClient({
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <MetricCard
             label="Total"
-            value={applications.length}
+            value={totalCount}
             color="#1f2937"
             icon={<Briefcase className="w-4 h-4" />}
             delay={0}
@@ -297,27 +304,21 @@ export default function DashboardClient({
           />
           <MetricCard
             label="Not Started"
-            value={
-              applications.filter((a) => a.status === "not_started").length
-            }
+            value={notStartedCount}
             color="#f59e0b"
             icon={<Target className="w-4 h-4" />}
             delay={100}
           />
           <MetricCard
             label="In Progress"
-            value={
-              applications.filter((a) => a.status === "in_progress").length
-            }
+            value={inProgressCount}
             color="#2563eb"
             icon={<CheckCircle2 className="w-4 h-4" />}
             delay={200}
           />
           <MetricCard
             label="Completed"
-            value={
-              applications.filter((a) => a.status === "completed").length
-            }
+            value={completedCount}
             color="#10b981"
             icon={<Trophy className="w-4 h-4" />}
             delay={300}

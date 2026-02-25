@@ -2,18 +2,23 @@ import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import PricingCard from "@/components/pricing-card";
 import Footer from "@/components/footer";
-import { createClient } from "../../supabase/server";
+import { createClient } from "@/../supabase/server";
 import { ArrowUpRight, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
 
 export default async function Home() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
 
-  const { data: plans, error } = await supabase.functions.invoke('supabase-functions-get-plans');
+  // Run auth check and plans fetch in parallel
+  const [{ data: { user } }, plansResult] = await Promise.all([
+    supabase.auth.getUser(),
+    supabase.functions.invoke('get-plans').catch(() => ({ data: null, error: null })),
+  ]);
+
+  const plans = plansResult?.data ?? null;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <Navbar />
+      <Navbar user={user} />
       <Hero />
 
       {/* Features Section */}
