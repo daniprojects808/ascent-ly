@@ -49,8 +49,7 @@ export default function KanbanColumn({
           className="w-2.5 h-2.5 rounded-full ring-4"
           style={{
             backgroundColor: color,
-            boxShadow: `0 0 12px ${color}40`,
-            ringColor: `${color}15`,
+            boxShadow: `0 0 12px ${color}40, 0 0 0 4px ${color}15`,
           }}
         />
         <h3 className="text-sm font-bold text-gray-900 dark:text-[#f5f1e8] tracking-wide">
