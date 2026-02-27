@@ -23,6 +23,7 @@ export type Database = {
           id: string
           industry: string | null
           is_favorited: boolean | null
+          job_url: string | null
           location: string | null
           notes: string | null
           position_title: string
@@ -41,6 +42,7 @@ export type Database = {
           id?: string
           industry?: string | null
           is_favorited?: boolean | null
+          job_url?: string | null
           location?: string | null
           notes?: string | null
           position_title: string
@@ -59,6 +61,7 @@ export type Database = {
           id?: string
           industry?: string | null
           is_favorited?: boolean | null
+          job_url?: string | null
           location?: string | null
           notes?: string | null
           position_title?: string

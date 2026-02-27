@@ -19,6 +19,7 @@ export interface Application {
   notes?: string;
   applied_date?: string;
   is_favorited?: boolean;
+  job_url?: string;
   created_at: string;
   updated_at: string;
 }
