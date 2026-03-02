@@ -15,7 +15,7 @@ export default async function Pricing() {
     
     return (
         <>
-            <Navbar user={user} />
+            <Navbar />
             <div className="container mx-auto px-4 py-16">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-bold mb-4">Simple, transparent pricing</h1>
