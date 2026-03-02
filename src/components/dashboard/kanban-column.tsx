@@ -17,6 +17,7 @@ interface KanbanColumnProps {
   onCardClick?: (app: Application) => void;
   onToggleFavorite?: (id: string) => void;
   onDelete?: (id: string) => void;
+  onToggleArchive?: (id: string) => void;
   delay?: number;
 }
 
@@ -28,6 +29,7 @@ export default function KanbanColumn({
   onCardClick,
   onToggleFavorite,
   onDelete,
+  onToggleArchive,
   delay = 0,
 }: KanbanColumnProps) {
   const { isOver, setNodeRef } = useDroppable({ id: status });
@@ -85,6 +87,7 @@ export default function KanbanColumn({
               statusColor={color}
               onToggleFavorite={onToggleFavorite}
               onDelete={onDelete}
+              onToggleArchive={onToggleArchive}
             />
           ))}
         </SortableContext>

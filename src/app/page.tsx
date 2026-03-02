@@ -9,10 +9,6 @@ import {
   GripVertical,
   BarChart3,
   Chrome,
-  Zap,
-  Shield,
-  Globe,
-  TrendingUp,
   Search,
   Bell,
   Sparkles,
@@ -38,12 +34,12 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-[#1a1d24]">
-      <Navbar user={user} />
+      <Navbar />
       <Hero />
 
       {/* Features Section */}
       <section
-        className="relative py-32 bg-[#1a1d24] overflow-hidden"
+        className="relative py-16 sm:py-24 lg:py-32 bg-[#1a1d24] overflow-hidden"
         id="features"
       >
         {/* Background elements */}
@@ -51,26 +47,26 @@ export default async function Home() {
         <div className="absolute top-[50%] left-[-5%] w-[400px] h-[400px] rounded-full bg-cyan-500/[0.03] blur-[100px]" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-6">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span className="text-xs font-medium text-[#f5f1e8]/50 uppercase tracking-wider">
                 Built for Job Seekers
               </span>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
               Everything You Need to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
                 Stay Ahead
               </span>
             </h2>
-            <p className="text-[#f5f1e8]/40 max-w-2xl mx-auto text-lg font-body">
+            <p className="text-[#f5f1e8]/40 max-w-2xl mx-auto text-base sm:text-lg font-body">
               Designed for professionals managing multiple opportunities
               simultaneously. Every feature serves a purpose.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: <LayoutGrid className="w-5 h-5" />,
@@ -161,24 +157,24 @@ export default async function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="relative py-32 bg-[#16181e] overflow-hidden" id="how-it-works">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#16181e] overflow-hidden" id="how-it-works">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
         <div className="absolute bottom-[30%] right-[-5%] w-[400px] h-[400px] rounded-full bg-amber-500/[0.03] blur-[100px]" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
               Three Steps to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
                 Organized
               </span>
             </h2>
-            <p className="text-[#f5f1e8]/40 max-w-xl mx-auto text-lg font-body">
+            <p className="text-[#f5f1e8]/40 max-w-xl mx-auto text-base sm:text-lg font-body">
               From chaotic spreadsheets to a data-driven workflow in minutes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 max-w-4xl mx-auto">
             {[
               {
                 step: "01",
@@ -229,11 +225,11 @@ export default async function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-24 bg-[#1a1d24] overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-[#1a1d24] overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
               {
                 value: "12K+",
@@ -273,25 +269,25 @@ export default async function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="relative py-32 bg-[#16181e] overflow-hidden" id="pricing">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#16181e] overflow-hidden" id="pricing">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
         <div className="absolute top-[30%] left-[10%] w-[300px] h-[300px] rounded-full bg-cyan-500/[0.03] blur-[100px]" />
         <div className="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] rounded-full bg-emerald-500/[0.03] blur-[100px]" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f1e8] mb-5 tracking-tight">
               Simple,{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
                 Transparent
               </span>{" "}
               Pricing
             </h2>
-            <p className="text-[#f5f1e8]/40 max-w-xl mx-auto text-lg font-body">
+            <p className="text-[#f5f1e8]/40 max-w-xl mx-auto text-base sm:text-lg font-body">
               Choose the plan that fits your job search. Upgrade anytime.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {plans?.map((item: any) => (
               <PricingCard key={item.id} item={item} user={user} />
             ))}
@@ -300,13 +296,13 @@ export default async function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-32 bg-[#1a1d24] overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-[#1a1d24] overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.03] via-transparent to-transparent" />
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-2xl mx-auto">
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f1e8] mb-6 tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f5f1e8] mb-6 tracking-tight">
               Ready to Take Control of Your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
                 Job Search

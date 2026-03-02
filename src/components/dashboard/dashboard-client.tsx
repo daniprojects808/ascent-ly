@@ -12,6 +12,7 @@ import {
   Trophy,
   X,
   Heart,
+  Archive,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,6 +62,7 @@ export default function DashboardClient({
   const [selectedApp, setSelectedApp] = useState<Application | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [showArchivedOnly, setShowArchivedOnly] = useState(false);
   const [activeFilters, setActiveFilters] = useState<{
     workType: string[];
     experience: string[];
@@ -96,6 +98,13 @@ export default function DashboardClient({
   // Filter applications
   const filteredApplications = useMemo(() => {
     return applications.filter((app) => {
+      // Archive filter: show archived only when filter is active, otherwise hide archived
+      if (showArchivedOnly) {
+        if (!app.is_archived) return false;
+      } else {
+        if (app.is_archived) return false;
+      }
+
       // Favorites filter
       if (showFavoritesOnly && !app.is_favorited) {
         return false;
@@ -131,7 +140,7 @@ export default function DashboardClient({
 
       return true;
     });
-  }, [applications, searchQuery, activeFilters, showFavoritesOnly]);
+  }, [applications, searchQuery, activeFilters, showFavoritesOnly, showArchivedOnly]);
 
   const notStarted = filteredApplications.filter(
     (a) => a.status === "not_started"
@@ -144,10 +153,11 @@ export default function DashboardClient({
   );
 
   // Metric counts derived from unfiltered applications
-  const totalCount = applications.length;
-  const notStartedCount = applications.filter((a) => a.status === "not_started").length;
-  const inProgressCount = applications.filter((a) => a.status === "in_progress").length;
-  const completedCount = applications.filter((a) => a.status === "completed").length;
+  const totalCount = applications.filter((a) => !a.is_archived).length;
+  const notStartedCount = applications.filter((a) => a.status === "not_started" && !a.is_archived).length;
+  const inProgressCount = applications.filter((a) => a.status === "in_progress" && !a.is_archived).length;
+  const completedCount = applications.filter((a) => a.status === "completed" && !a.is_archived).length;
+  const archivedCount = applications.filter((a) => a.is_archived).length;
 
   function toggleFilter(type: "workType" | "experience", value: string) {
     setActiveFilters((prev) => ({
@@ -162,13 +172,15 @@ export default function DashboardClient({
     setActiveFilters({ workType: [], experience: [] });
     setSearchQuery("");
     setShowFavoritesOnly(false);
+    setShowArchivedOnly(false);
   }
 
   const hasActiveFilters =
     searchQuery ||
     activeFilters.workType.length > 0 ||
     activeFilters.experience.length > 0 ||
-    showFavoritesOnly;
+    showFavoritesOnly ||
+    showArchivedOnly;
 
   async function handleStatusChange(id: string, newStatus: string) {
     const validStatus = newStatus as ApplicationStatus;
@@ -223,6 +235,22 @@ export default function DashboardClient({
       .eq("id", id);
 
     setApplications((prev) => prev.filter((a) => a.id !== id));
+  }
+
+  async function handleToggleArchive(id: string) {
+    const app = applications.find((a) => a.id === id);
+    if (!app) return;
+
+    const newArchivedState = !app.is_archived;
+
+    await supabase
+      .from("applications")
+      .update({ is_archived: newArchivedState })
+      .eq("id", id);
+
+    setApplications((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, is_archived: newArchivedState } : a))
+    );
   }
 
   function handleDragStart(event: DragStartEvent) {
@@ -368,6 +396,18 @@ export default function DashboardClient({
               />
               Favorites
             </button>
+            {/* Archived filter */}
+            <button
+              onClick={() => setShowArchivedOnly(!showArchivedOnly)}
+              className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 border flex items-center gap-1.5 ${
+                showArchivedOnly
+                  ? "bg-amber-50 border-amber-500 text-amber-700 font-medium dark:bg-amber-500/15 dark:border-amber-500 dark:text-amber-300"
+                  : "bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900 dark:bg-white/5 dark:border-white/10 dark:text-gray-400 dark:hover:border-white/20 dark:hover:text-gray-200"
+              }`}
+            >
+              <Archive className={`w-3 h-3`} />
+              Archived {archivedCount > 0 && `(${archivedCount})`}
+            </button>
             <div className="w-px h-4 bg-gray-200 dark:bg-white/10 mx-1" />
             {FILTER_OPTIONS.workType.map((opt) => (
               <button
@@ -424,6 +464,7 @@ export default function DashboardClient({
               onCardClick={setSelectedApp}
               onToggleFavorite={handleToggleFavorite}
               onDelete={handleDelete}
+              onToggleArchive={handleToggleArchive}
               delay={400}
             />
             <KanbanColumn
@@ -435,6 +476,7 @@ export default function DashboardClient({
               onCardClick={setSelectedApp}
               onToggleFavorite={handleToggleFavorite}
               onDelete={handleDelete}
+              onToggleArchive={handleToggleArchive}
               delay={500}
             />
             <KanbanColumn
@@ -446,6 +488,7 @@ export default function DashboardClient({
               onCardClick={setSelectedApp}
               onToggleFavorite={handleToggleFavorite}
               onDelete={handleDelete}
+              onToggleArchive={handleToggleArchive}
               delay={600}
             />
           </div>

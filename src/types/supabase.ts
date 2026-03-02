@@ -22,6 +22,7 @@ export type Database = {
           experience_level: string | null
           id: string
           industry: string | null
+          is_archived: boolean | null
           is_favorited: boolean | null
           job_url: string | null
           location: string | null
@@ -41,6 +42,7 @@ export type Database = {
           experience_level?: string | null
           id?: string
           industry?: string | null
+          is_archived?: boolean | null
           is_favorited?: boolean | null
           job_url?: string | null
           location?: string | null
@@ -60,6 +62,7 @@ export type Database = {
           experience_level?: string | null
           id?: string
           industry?: string | null
+          is_archived?: boolean | null
           is_favorited?: boolean | null
           job_url?: string | null
           location?: string | null

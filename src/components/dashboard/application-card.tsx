@@ -1,7 +1,7 @@
 "use client";
 
 import type { Application } from "@/types/application";
-import { MapPin, DollarSign, Briefcase, GraduationCap, Building2, Heart, Trash2 } from "lucide-react";
+import { MapPin, DollarSign, Briefcase, GraduationCap, Building2, Heart, Trash2, Archive, ArchiveRestore } from "lucide-react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {
@@ -22,6 +22,7 @@ interface ApplicationCardProps {
   statusColor?: string;
   onToggleFavorite?: (id: string) => void;
   onDelete?: (id: string) => void;
+  onToggleArchive?: (id: string) => void;
 }
 
 const workTypeLabels: Record<string, string> = {
@@ -52,6 +53,7 @@ export default function ApplicationCard({
   statusColor = "#f59e0b",
   onToggleFavorite,
   onDelete,
+  onToggleArchive,
 }: ApplicationCardProps) {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const {
@@ -80,6 +82,11 @@ export default function ApplicationCard({
     setShowDeleteDialog(true);
   };
 
+  const handleArchiveClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onToggleArchive?.(application.id);
+  };
+
   const handleConfirmDelete = () => {
     onDelete?.(application.id);
     setShowDeleteDialog(false);
@@ -96,6 +103,8 @@ export default function ApplicationCard({
         className={`group relative cursor-grab active:cursor-grabbing rounded-xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1a1d24] p-4 transition-all duration-200 hover:border-gray-300 dark:hover:border-white/[0.15] hover:scale-[1.02] hover:shadow-lg ${
           isDragging
             ? "opacity-50 scale-105 shadow-2xl z-50 border-blue-300 dark:border-cyan-400/40"
+            : application.is_archived
+            ? "opacity-60"
             : ""
         }`}
       >
@@ -129,6 +138,17 @@ export default function ApplicationCard({
                         : "text-gray-400 dark:text-gray-500 group-hover/heart:text-red-400 dark:group-hover/heart:text-red-400"
                     }`}
                   />
+                </button>
+                <button
+                  onClick={handleArchiveClick}
+                  className="p-1 rounded-md hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-colors group/archive"
+                  title={application.is_archived ? "Unarchive application" : "Archive application"}
+                >
+                  {application.is_archived ? (
+                    <ArchiveRestore className="w-4 h-4 text-amber-500 dark:text-amber-400 transition-colors" />
+                  ) : (
+                    <Archive className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover/archive:text-amber-500 dark:group-hover/archive:text-amber-400 transition-colors" />
+                  )}
                 </button>
                 <button
                   onClick={handleDeleteClick}

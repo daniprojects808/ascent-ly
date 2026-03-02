@@ -14,9 +14,9 @@ export default function Footer() {
         }}
       />
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
         {/* Top section with brand */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-12 mb-12 md:mb-16">
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-2.5 mb-4 group">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center shadow-[0_0_16px_rgba(6,182,212,0.2)]">

@@ -92,10 +92,10 @@ export default function Hero() {
       </div>
 
       <div className="relative z-20 flex-1 flex flex-col justify-center">
-        <div className="container mx-auto px-4 py-24 lg:py-32">
+        <div className="container mx-auto px-4 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
           {/* Badge */}
           <div
-            className={`flex justify-center mb-10 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            className={`flex justify-center mb-8 sm:mb-10 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -111,7 +111,7 @@ export default function Hero() {
           {/* Main heading */}
           <div className="text-center max-w-5xl mx-auto">
             <h1
-              className={`font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-bold text-[#f5f1e8] mb-8 tracking-tight leading-[1.05] transition-all duration-700 delay-100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`font-display text-4xl sm:text-5xl lg:text-[5.5rem] font-bold text-[#f5f1e8] mb-6 sm:mb-8 tracking-tight leading-[1.05] transition-all duration-700 delay-100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               Track Every{" "}
               <span className="relative inline-block">
@@ -125,7 +125,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className={`text-lg sm:text-xl text-[#f5f1e8]/50 max-w-2xl mx-auto leading-relaxed font-body mb-12 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`text-base sm:text-xl text-[#f5f1e8]/50 max-w-2xl mx-auto leading-relaxed font-body mb-10 sm:mb-12 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               A comprehensive dashboard for job seekers to monitor their
               application pipeline with real-time metrics and visual progress
@@ -134,11 +134,11 @@ export default function Hero() {
 
             {/* CTA buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-16 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <Link
                 href="/sign-up"
-                className="group inline-flex items-center gap-2 px-8 py-4 text-[#1a1d24] bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-xl hover:from-cyan-300 hover:to-cyan-400 transition-all duration-300 text-base font-semibold shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.45)] hover:scale-[1.02]"
+                className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-8 py-4 text-[#1a1d24] bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-xl hover:from-cyan-300 hover:to-cyan-400 transition-all duration-300 text-base font-semibold shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.45)] hover:scale-[1.02]"
               >
                 Start Tracking Free
                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -146,7 +146,7 @@ export default function Hero() {
 
               <Link
                 href="#features"
-                className="inline-flex items-center gap-2 px-8 py-4 text-[#f5f1e8]/80 bg-white/[0.05] border border-white/[0.08] rounded-xl hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 text-base font-medium"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-[#f5f1e8]/80 bg-white/[0.05] border border-white/[0.08] rounded-xl hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 text-base font-medium"
               >
                 See How It Works
                 <ArrowRight className="w-4 h-4" />
@@ -155,7 +155,7 @@ export default function Hero() {
 
             {/* Trust pills */}
             <div
-              className={`flex flex-wrap justify-center gap-6 text-sm text-[#f5f1e8]/40 transition-all duration-700 delay-[400ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#f5f1e8]/40 transition-all duration-700 delay-[400ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -205,9 +205,9 @@ export default function Hero() {
             </div>
 
             {/* Dashboard content mockup */}
-            <div className="p-6 space-y-5">
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
               {/* Metric cards row */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {[
                   { label: "Total", value: 47, color: "#06b6d4" },
                   { label: "In Progress", value: 18, color: "#06b6d4" },
@@ -216,13 +216,13 @@ export default function Hero() {
                 ].map((m, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4"
+                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 sm:p-4"
                   >
-                    <div className="text-[10px] uppercase tracking-[0.15em] text-[#f5f1e8]/30 mb-2">
+                    <div className="text-[10px] uppercase tracking-[0.15em] text-[#f5f1e8]/30 mb-1 sm:mb-2">
                       {m.label}
                     </div>
                     <div
-                      className="text-3xl font-bold font-mono-data"
+                      className="text-2xl sm:text-3xl font-bold font-mono-data"
                       style={{ color: m.color }}
                     >
                       <AnimatedCounter
@@ -234,8 +234,8 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Kanban mockup */}
-              <div className="grid grid-cols-3 gap-3">
+              {/* Kanban mockup — hidden on small screens */}
+              <div className="hidden sm:grid grid-cols-3 gap-3">
                 {[
                   {
                     title: "Not Started",
