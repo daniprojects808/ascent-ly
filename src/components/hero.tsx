@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 function AnimatedCounter({
@@ -24,7 +24,7 @@ function AnimatedCounter({
           setStarted(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -58,123 +58,67 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setIsLoaded(true), 100);
+    const t = setTimeout(() => setIsLoaded(true), 50);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#1a1d24] min-h-screen flex flex-col">
-      {/* Noise overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03' /%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* Gradient orbs */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-500/[0.07] blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-amber-500/[0.05] blur-[120px]" />
-      <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-emerald-500/[0.04] blur-[100px]" />
-
-      {/* Grid lines */}
-      <div className="absolute inset-0 z-0 opacity-[0.04]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(245,241,232,0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(245,241,232,0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-[#09090b] min-h-screen flex flex-col">
+      {/* Subtle top gradient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-white/[0.03] via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-20 flex-1 flex flex-col justify-center">
-        <div className="container mx-auto px-4 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-20">
+        <div className="max-w-[1200px] mx-auto px-6 pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-24">
           {/* Badge */}
           <div
-            className={`flex justify-center mb-8 sm:mb-10 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            className={`flex justify-center mb-10 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02]">
+              <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
               </span>
-              <span className="text-xs font-medium text-[#f5f1e8]/60 tracking-wide uppercase">
-                Now with Chrome Extension &mdash; Auto-capture jobs
+              <span className="text-[12px] text-white/40 tracking-wide">
+                Now with Chrome Extension
               </span>
             </div>
           </div>
 
           {/* Main heading */}
-          <div className="text-center max-w-5xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <h1
-              className={`font-display text-4xl sm:text-5xl lg:text-[5.5rem] font-bold text-[#f5f1e8] mb-6 sm:mb-8 tracking-tight leading-[1.05] transition-all duration-700 delay-100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`text-4xl sm:text-6xl lg:text-[72px] font-semibold text-white mb-6 sm:mb-8 tracking-[-0.04em] leading-[1.05] transition-all duration-700 delay-75 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              Track Every{" "}
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-emerald-400">
-                  Application
-                </span>
-                <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full opacity-60" />
-              </span>
+              Track every application.
               <br />
-              Land Your Dream Job
+              <span className="text-white/40">Land the role.</span>
             </h1>
 
             <p
-              className={`text-base sm:text-xl text-[#f5f1e8]/50 max-w-2xl mx-auto leading-relaxed font-body mb-10 sm:mb-12 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`text-[16px] sm:text-[18px] text-white/35 max-w-xl mx-auto leading-[1.7] mb-12 transition-all duration-700 delay-150 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              A comprehensive dashboard for job seekers to monitor their
-              application pipeline with real-time metrics and visual progress
-              tracking. Transform chaos into clarity.
+              Monitor your job pipeline with real-time metrics and visual
+              progress tracking. Transform chaos into clarity.
             </p>
 
             {/* CTA buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-16 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`flex flex-col sm:flex-row gap-3 justify-center items-center mb-20 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
               <Link
                 href="/sign-up"
-                className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-8 py-4 text-[#1a1d24] bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-xl hover:from-cyan-300 hover:to-cyan-400 transition-all duration-300 text-base font-semibold shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.45)] hover:scale-[1.02]"
+                className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-7 py-3 text-black bg-white rounded-full hover:bg-white/90 transition-all duration-200 text-[14px] font-medium"
               >
-                Start Tracking Free
-                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                Start for free
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
               </Link>
 
               <Link
                 href="#features"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-[#f5f1e8]/80 bg-white/[0.05] border border-white/[0.08] rounded-xl hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 text-base font-medium"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 text-white/50 hover:text-white/80 border border-white/[0.08] hover:border-white/[0.15] rounded-full transition-all duration-200 text-[14px]"
               >
-                See How It Works
-                <ArrowRight className="w-4 h-4" />
+                See how it works
               </Link>
-            </div>
-
-            {/* Trust pills */}
-            <div
-              className={`flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#f5f1e8]/40 transition-all duration-700 delay-[400ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                </div>
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-amber-500/20 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                </div>
-                <span>Free forever plan</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                </div>
-                <span>Chrome extension included</span>
-              </div>
             </div>
           </div>
         </div>
@@ -182,49 +126,46 @@ export default function Hero() {
 
       {/* Dashboard preview mockup */}
       <div
-        className={`relative z-20 container mx-auto px-4 pb-16 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        className={`relative z-20 max-w-[1100px] mx-auto px-6 pb-24 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       >
-        <div className="relative max-w-5xl mx-auto">
-          {/* Glow behind */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 via-transparent to-emerald-500/10 rounded-2xl blur-xl" />
+        <div className="relative">
+          {/* Subtle glow */}
+          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-white/[0.08] to-transparent opacity-50" />
 
           {/* Mockup frame */}
-          <div className="relative rounded-xl border border-white/[0.08] bg-[#1e2028] overflow-hidden shadow-2xl shadow-black/40">
+          <div className="relative rounded-2xl border border-white/[0.06] bg-[#111113] overflow-hidden">
             {/* Browser bar */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#1a1d24]">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                <div className="w-3 h-3 rounded-full bg-amber-500/60" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500/60" />
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.04]">
+              <div className="flex gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-white/[0.08]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/[0.08]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/[0.08]" />
               </div>
-              <div className="flex-1 mx-4">
-                <div className="max-w-sm mx-auto px-3 py-1 rounded-md bg-white/[0.05] text-xs text-[#f5f1e8]/30 text-center font-mono-data">
+              <div className="flex-1 mx-8">
+                <div className="max-w-xs mx-auto px-3 py-1 rounded-lg bg-white/[0.03] text-[11px] text-white/20 text-center font-mono-data">
                   ascent-ly.com/dashboard
                 </div>
               </div>
             </div>
 
-            {/* Dashboard content mockup */}
-            <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
+            {/* Dashboard content */}
+            <div className="p-5 sm:p-8 space-y-5">
               {/* Metric cards row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
-                  { label: "Total", value: 47, color: "#06b6d4" },
-                  { label: "In Progress", value: 18, color: "#06b6d4" },
-                  { label: "Completed", value: 23, color: "#10b981" },
-                  { label: "Offers", value: 6, color: "#fbbf24" },
+                  { label: "Total", value: 47, color: "white" },
+                  { label: "In Progress", value: 18, color: "white" },
+                  { label: "Completed", value: 23, color: "white" },
+                  { label: "Offers", value: 6, color: "white" },
                 ].map((m, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 sm:p-4"
+                    className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4"
                   >
-                    <div className="text-[10px] uppercase tracking-[0.15em] text-[#f5f1e8]/30 mb-1 sm:mb-2">
+                    <div className="text-[11px] text-white/25 mb-2 tracking-wide">
                       {m.label}
                     </div>
-                    <div
-                      className="text-2xl sm:text-3xl font-bold font-mono-data"
-                      style={{ color: m.color }}
-                    >
+                    <div className="text-3xl font-semibold text-white/90 font-mono-data">
                       <AnimatedCounter
                         target={m.value}
                         delay={600 + i * 200}
@@ -234,12 +175,12 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Kanban mockup — hidden on small screens */}
+              {/* Kanban mockup */}
               <div className="hidden sm:grid grid-cols-3 gap-3">
                 {[
                   {
                     title: "Not Started",
-                    color: "#f59e0b",
+                    count: 2,
                     cards: [
                       { name: "Stripe", role: "Sr. Engineer" },
                       { name: "Figma", role: "Product Designer" },
@@ -247,7 +188,7 @@ export default function Hero() {
                   },
                   {
                     title: "In Progress",
-                    color: "#06b6d4",
+                    count: 3,
                     cards: [
                       { name: "Vercel", role: "Full Stack Dev" },
                       { name: "Linear", role: "Frontend Lead" },
@@ -256,7 +197,7 @@ export default function Hero() {
                   },
                   {
                     title: "Completed",
-                    color: "#10b981",
+                    count: 2,
                     cards: [
                       { name: "Arc", role: "UX Engineer" },
                       { name: "Raycast", role: "iOS Developer" },
@@ -264,27 +205,23 @@ export default function Hero() {
                   },
                 ].map((col, i) => (
                   <div key={i} className="space-y-2">
-                    <div className="flex items-center gap-2 px-2 py-1.5">
-                      <div
-                        className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: col.color }}
-                      />
-                      <span className="text-[10px] uppercase tracking-[0.15em] text-[#f5f1e8]/40 font-medium">
+                    <div className="flex items-center justify-between px-1 py-1.5">
+                      <span className="text-[11px] text-white/30 tracking-wide">
                         {col.title}
                       </span>
-                      <span className="text-[10px] font-mono-data text-[#f5f1e8]/20 ml-auto">
-                        {col.cards.length}
+                      <span className="text-[11px] font-mono-data text-white/15">
+                        {col.count}
                       </span>
                     </div>
                     {col.cards.map((card, j) => (
                       <div
                         key={j}
-                        className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 hover:bg-white/[0.04] transition-colors"
+                        className="rounded-lg border border-white/[0.04] bg-white/[0.015] p-3"
                       >
-                        <div className="text-xs font-semibold text-[#f5f1e8]/70 mb-0.5">
+                        <div className="text-[13px] font-medium text-white/60 mb-0.5">
                           {card.name}
                         </div>
-                        <div className="text-[10px] text-[#f5f1e8]/30">
+                        <div className="text-[11px] text-white/20">
                           {card.role}
                         </div>
                       </div>
@@ -298,7 +235,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1d24] to-transparent z-30 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#09090b] to-transparent z-30 pointer-events-none" />
     </section>
   );
 }
