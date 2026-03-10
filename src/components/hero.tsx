@@ -85,7 +85,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/[0.06] text-[11px] font-mono-data text-[#8b5cf6]/80 tracking-[0.08em] uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-glow" />
-            Built for students applying to 20+ jobs at once
+            The spreadsheet isn't cutting it anymore.
           </span>
         </div>
 

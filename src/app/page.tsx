@@ -74,8 +74,8 @@ export default async function Home() {
               {
                 quote:
                   "Went from mass-applying on LinkedIn at 1am with no system to knowing exactly where I stand with every company.",
-                name: "Marcus T.",
-                detail: "BBA, UT Austin '24",
+                name: "Max D.",
+                detail: "MIS and Marketing Grad",
               },
             ].map((t, i) => (
               <div
