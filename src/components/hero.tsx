@@ -77,13 +77,13 @@ export default function Hero() {
       />
 
       {/* Hero content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 pt-40 pb-20 sm:pt-48 sm:pb-24 lg:pt-56 lg:pb-28">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 pt-28 pb-16 sm:pt-48 sm:pb-24 lg:pt-56 lg:pb-28">
         {/* Eyebrow — violet pill */}
         <div
           className={`flex justify-center mb-10 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
           style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
         >
-          <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/[0.06] text-[11px] font-mono-data text-[#8b5cf6]/80 tracking-[0.08em] uppercase">
+          <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/[0.06] text-[10px] sm:text-[11px] font-mono-data text-[#8b5cf6]/80 tracking-[0.06em] sm:tracking-[0.08em] uppercase text-center max-w-[300px] sm:max-w-none leading-[1.4]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-glow" />
             The spreadsheet isn't cutting it anymore.
           </span>
@@ -92,7 +92,7 @@ export default function Hero() {
         {/* Main headline — pain-first, student-focused */}
         <div className="text-center">
           <h1
-            className={`font-display text-[38px] sm:text-[58px] lg:text-[72px] xl:text-[84px] font-extrabold text-white leading-[1.4] tracking-[-0.05em] mb-8 transition-all duration-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`font-display text-[28px] sm:text-[58px] lg:text-[72px] xl:text-[84px] font-extrabold text-white leading-[1.3] sm:leading-[1.4] tracking-[-0.04em] sm:tracking-[-0.05em] mb-8 transition-all duration-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             style={{ transitionDelay: "80ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           >
             You're applying to 20+ jobs.
@@ -132,7 +132,7 @@ export default function Hero() {
 
           {/* Trust line */}
           <p
-            className={`font-body text-[12px] text-white/[0.25] mb-2 transition-all duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            className={`font-body text-[11px] sm:text-[12px] text-white/[0.25] mb-2 transition-all duration-700 px-4 ${isLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ transitionDelay: "350ms" }}
           >
             Used by students at UH, USC, NYU, UT Austin, and more
@@ -140,7 +140,7 @@ export default function Hero() {
 
           {/* Social proof */}
           <p
-            className={`font-mono-data text-[11px] text-white/[0.15] tracking-[0.05em] transition-all duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            className={`font-mono-data text-[10px] sm:text-[11px] text-white/[0.15] tracking-[0.04em] sm:tracking-[0.05em] transition-all duration-700 px-4 ${isLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ transitionDelay: "420ms" }}
           >
             Free forever · No credit card · Set up in 2 minutes
@@ -150,7 +150,7 @@ export default function Hero() {
 
       {/* Product mockup */}
       <div
-        className={`max-w-[1100px] mx-auto px-6 pb-0 relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}`}
+        className={`max-w-[1100px] mx-auto px-3 sm:px-6 pb-0 relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}`}
         style={{ transitionDelay: "450ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
       >
         {/* Outer glow ring */}
@@ -167,7 +167,7 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]/70 hover:bg-[#febc2e] transition-colors" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]/70 hover:bg-[#28c840] transition-colors" />
               </div>
-              <div className="flex-1 flex justify-center">
+              <div className="hidden sm:flex flex-1 justify-center">
                 <div className="flex items-center gap-2 px-5 py-1.5 rounded-lg bg-white/[0.04] text-[11px] text-white/25 font-mono-data border border-white/[0.04]">
                   <svg
                     className="w-3 h-3 text-white/15"

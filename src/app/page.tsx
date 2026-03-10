@@ -40,7 +40,7 @@ export default async function Home() {
 
       {/* Social proof — student testimonials */}
       <section className="relative border-y border-white/[0.04] bg-[#08090c]">
-        <div className="max-w-[1200px] mx-auto px-6 py-16 sm:py-20">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 sm:py-20">
           {/* Stat callout */}
           <div className="text-center mb-14">
             <p className="font-mono-data text-[11px] text-[#8b5cf6]/50 uppercase tracking-[0.2em] mb-4">
@@ -102,16 +102,16 @@ export default async function Home() {
 
       {/* Features — reframed for students */}
       <section
-        className="relative bg-[#08090c] py-28 sm:py-36 lg:py-44"
+        className="relative bg-[#08090c] py-20 sm:py-36 lg:py-44"
         id="features"
       >
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           {/* Section header */}
           <div className="text-center mb-20 sm:mb-28">
             <p className="font-mono-data text-[11px] text-[#8b5cf6]/60 uppercase tracking-[0.2em] mb-6">
               Features
             </p>
-            <h2 className="font-display text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-6">
+            <h2 className="font-display text-[28px] sm:text-[52px] lg:text-[64px] font-extrabold text-white tracking-[-0.03em] sm:tracking-[-0.04em] leading-[1.05] sm:leading-[0.98] mb-6">
               Your whole job search.
               <br />
               <span className="text-white/25">One place.</span>
@@ -274,14 +274,14 @@ export default async function Home() {
       </section>
 
       {/* Built for the bulk apply era */}
-      <section className="relative bg-[#08090c] border-t border-white/[0.04] py-24 sm:py-32">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="relative bg-[#08090c] border-t border-white/[0.04] py-20 sm:py-32">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="max-w-[800px] mx-auto">
             <div className="text-center mb-16">
               <p className="font-mono-data text-[11px] text-[#8b5cf6]/60 uppercase tracking-[0.2em] mb-6">
                 We get it
               </p>
-              <h2 className="font-display text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-5">
+              <h2 className="font-display text-[28px] sm:text-[44px] lg:text-[52px] font-extrabold text-white tracking-[-0.03em] sm:tracking-[-0.04em] leading-[1.05] sm:leading-[0.98] mb-5">
                 Built for the
                 <br />
                 <span className="text-gradient-amber">bulk apply era.</span>
@@ -339,22 +339,22 @@ export default async function Home() {
 
       {/* How it works — horizontal numbered steps */}
       <section
-        className="relative bg-[#08090c] border-t border-white/[0.04] py-28 sm:py-36"
+        className="relative bg-[#08090c] border-t border-white/[0.04] py-20 sm:py-36"
         id="how-it-works"
       >
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 sm:mb-24">
             <p className="font-mono-data text-[11px] text-[#8b5cf6]/60 uppercase tracking-[0.2em] mb-6">
               How it works
             </p>
-            <h2 className="font-display text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.04em] leading-[0.98]">
+            <h2 className="font-display text-[28px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.03em] sm:tracking-[-0.04em] leading-[1.1] sm:leading-[0.98]">
               Set up in 2 minutes.
               <br />
               <span className="text-white/25">Seriously.</span>
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-12 sm:gap-8 max-w-[900px] mx-auto relative">
+          <div className="grid sm:grid-cols-3 gap-10 sm:gap-8 max-w-[900px] mx-auto relative">
             {/* connector line */}
             <div className="hidden sm:block absolute top-7 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-[#8b5cf6]/20 to-transparent" />
 
@@ -393,15 +393,15 @@ export default async function Home() {
 
       {/* Pricing */}
       <section
-        className="relative bg-[#08090c] border-t border-white/[0.04] py-28 sm:py-36 lg:py-44"
+        className="relative bg-[#08090c] border-t border-white/[0.04] py-20 sm:py-36 lg:py-44"
         id="pricing"
       >
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-20">
             <p className="font-mono-data text-[11px] text-[#8b5cf6]/60 uppercase tracking-[0.2em] mb-6">
               Pricing
             </p>
-            <h2 className="font-display text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-5">
+            <h2 className="font-display text-[28px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.03em] sm:tracking-[-0.04em] leading-[1.1] sm:leading-[0.98] mb-5">
               Free for all job seekers.
             </h2>
             <p className="font-body text-[16px] text-white/30 max-w-md mx-auto leading-[1.7]">
@@ -422,7 +422,7 @@ export default async function Home() {
       </section>
 
       {/* Final CTA — bold, student-focused */}
-      <section className="relative bg-[#08090c] border-t border-white/[0.04] py-32 sm:py-40 lg:py-48">
+      <section className="relative bg-[#08090c] border-t border-white/[0.04] py-20 sm:py-40 lg:py-48">
         {/* Ambient glow */}
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-[0.04] pointer-events-none"
@@ -431,8 +431,8 @@ export default async function Home() {
               "radial-gradient(ellipse at 50% 100%, #8b5cf6 0%, transparent 70%)",
           }}
         />
-        <div className="relative z-10 max-w-[900px] mx-auto px-6 text-center">
-          <h2 className="font-display text-[34px] sm:text-[50px] lg:text-[64px] font-extrabold text-white tracking-[-0.045em] leading-[0.95] mb-8">
+        <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 text-center">
+          <h2 className="font-display text-[28px] sm:text-[50px] lg:text-[64px] font-extrabold text-white tracking-[-0.035em] sm:tracking-[-0.045em] leading-[1.1] sm:leading-[0.95] mb-8">
             The job market is brutal.
             <br />
             <span className="text-gradient-amber">
