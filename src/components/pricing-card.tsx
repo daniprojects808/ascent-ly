@@ -90,7 +90,7 @@ export default function PricingCard({
               : "bg-white/[0.05] text-white/50 hover:bg-white/[0.09] border border-white/[0.07]"
           }`}
         >
-          Get started
+          Get started free
         </Button>
       </CardFooter>
     </Card>

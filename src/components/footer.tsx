@@ -15,8 +15,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-[13px] text-white/25 leading-relaxed">
-              Transform your job search into an organized, data-driven workflow.
-              Track every application and land your dream job.
+              The job search tracker built for students and recent grads who are
+              applying to everything and need to keep it all straight.
             </p>
           </div>
 

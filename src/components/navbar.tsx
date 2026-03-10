@@ -80,7 +80,7 @@ export default function Navbar() {
                 href="/sign-up"
                 className="h-8 px-5 text-[12px] font-medium bg-[#8b5cf6] text-white hover:bg-[#7c3aed] rounded-full transition-all duration-200 inline-flex items-center hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]"
               >
-                Get started
+                Start for Free
               </Link>
             </>
           )}
@@ -141,7 +141,7 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="px-5 py-3 text-[13px] font-medium text-center text-white bg-[#8b5cf6] rounded-full hover:bg-[#7c3aed] transition-all duration-200"
                   >
-                    Get started
+                    Start for Free
                   </Link>
                 </>
               )}

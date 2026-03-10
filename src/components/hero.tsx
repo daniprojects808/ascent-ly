@@ -85,40 +85,40 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/[0.06] text-[11px] font-mono-data text-[#8b5cf6]/80 tracking-[0.08em] uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-glow" />
-            Now tracking 12,000+ applications
+            Built for students applying to 20+ jobs at once
           </span>
         </div>
 
-        {/* Main headline — editorial, tight, two-tone */}
+        {/* Main headline — pain-first, student-focused */}
         <div className="text-center">
           <h1
-            className={`font-display text-[44px] sm:text-[68px] lg:text-[84px] xl:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.05em] mb-8 transition-all duration-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`font-display text-[38px] sm:text-[58px] lg:text-[72px] xl:text-[84px] font-extrabold text-white leading-[1.4] tracking-[-0.05em] mb-8 transition-all duration-900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             style={{ transitionDelay: "80ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           >
-            Land your
+            You're applying to 20+ jobs.
             <br />
-            <span className="text-gradient-amber">next role.</span>
+            <span className="text-gradient-amber">Don't lose track of any of them</span>
           </h1>
 
           {/* Subheadline */}
           <p
-            className={`font-body text-[16px] sm:text-[18px] text-white/40 max-w-[480px] mx-auto leading-[1.7] mb-12 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            className={`font-body text-[16px] sm:text-[18px] text-white/40 max-w-[520px] mx-auto leading-[1.7] mb-12 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             style={{ transitionDelay: "180ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           >
-            A calm, focused dashboard for tracking every application,
-            interview, and offer — all in one place.
+            Ascent-ly keeps your entire job search in one place — so you can
+            focus on getting the offer, not managing the chaos.
           </p>
 
           {/* CTAs */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             style={{ transitionDelay: "280ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           >
             <Link
               href="/sign-up"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3 bg-[#8b5cf6] text-white rounded-full text-[14px] font-semibold transition-all duration-200 hover:bg-[#7c3aed] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#8b5cf6] text-white rounded-full text-[15px] font-semibold transition-all duration-200 hover:bg-[#7c3aed] hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
             >
-              Get started free
+              Track My Applications Free
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <Link
@@ -130,13 +130,20 @@ export default function Hero() {
             </Link>
           </div>
 
+          {/* Trust line */}
+          <p
+            className={`font-body text-[12px] text-white/[0.25] mb-2 transition-all duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            style={{ transitionDelay: "350ms" }}
+          >
+            Used by students at UH, USC, NYU, UT Austin, and more
+          </p>
+
           {/* Social proof */}
           <p
-            className={`font-mono-data text-[11px] text-white/[0.2] tracking-[0.05em] transition-all duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-            style={{ transitionDelay: "380ms" }}
+            className={`font-mono-data text-[11px] text-white/[0.15] tracking-[0.05em] transition-all duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            style={{ transitionDelay: "420ms" }}
           >
-            Trusted by 3,200+ professionals · Free forever plan · No credit
-            card required
+            Free forever · No credit card · Set up in 2 minutes
           </p>
         </div>
       </div>
@@ -208,10 +215,10 @@ export default function Hero() {
                 <div className="mt-auto pt-4 border-t border-white/[0.04]">
                   <div className="flex items-center gap-2 px-2.5 py-2">
                     <div className="w-6 h-6 rounded-full bg-[#8b5cf6]/20 flex items-center justify-center text-[9px] font-mono-data text-[#8b5cf6]/60">
-                      JD
+                      AK
                     </div>
                     <div className="text-[11px] text-white/25 font-body">
-                      John Doe
+                      Alex Kim
                     </div>
                   </div>
                 </div>
@@ -223,10 +230,10 @@ export default function Hero() {
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <div className="text-[14px] font-display font-bold text-white/70">
-                      Good morning, John
+                      Hey Alex, you&apos;re killing it 🔥
                     </div>
                     <div className="text-[11px] text-white/20 font-body mt-1">
-                      Here&apos;s your pipeline overview
+                      32 applications tracked this month
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -256,25 +263,25 @@ export default function Hero() {
                   {[
                     {
                       label: "Total Applied",
-                      value: 47,
+                      value: 32,
                       accent: "text-white/80",
                       border: "border-white/[0.05]",
                     },
                     {
-                      label: "In Progress",
-                      value: 18,
+                      label: "Waiting to Hear",
+                      value: 14,
                       accent: "text-cyan-400/80",
                       border: "border-cyan-400/[0.08]",
                     },
                     {
-                      label: "Completed",
-                      value: 23,
+                      label: "Interviewing",
+                      value: 5,
                       accent: "text-emerald-400/80",
                       border: "border-emerald-400/[0.08]",
                     },
                     {
                       label: "Offers",
-                      value: 6,
+                      value: 2,
                       accent: "text-[#8b5cf6]/80",
                       border: "border-[#8b5cf6]/[0.08]",
                     },
@@ -302,62 +309,62 @@ export default function Hero() {
                 <div className="hidden sm:grid grid-cols-3 gap-3 pt-1">
                   {[
                     {
-                      title: "Not Started",
+                      title: "Applied",
                       dot: "bg-violet-400",
                       cards: [
                         {
-                          company: "Stripe",
-                          role: "Sr. Engineer",
-                          tag: "Fintech",
-                          salary: "$180k",
+                          company: "Google",
+                          role: "SWE Intern",
+                          tag: "Tech",
+                          salary: "$45/hr",
                         },
                         {
-                          company: "Figma",
-                          role: "Product Designer",
-                          tag: "Design",
-                          salary: "$165k",
+                          company: "Deloitte",
+                          role: "Analyst",
+                          tag: "Consulting",
+                          salary: "$75k",
                         },
                       ],
                     },
                     {
-                      title: "In Progress",
+                      title: "Interviewing",
                       dot: "bg-cyan-400",
                       cards: [
                         {
-                          company: "Vercel",
-                          role: "Full Stack Dev",
-                          tag: "Infra",
-                          salary: "$190k",
+                          company: "Spotify",
+                          role: "Product Intern",
+                          tag: "Music/Tech",
+                          salary: "$40/hr",
                         },
                         {
-                          company: "Linear",
-                          role: "Frontend Lead",
+                          company: "HubSpot",
+                          role: "Marketing Assoc.",
                           tag: "SaaS",
-                          salary: "$175k",
+                          salary: "$62k",
                         },
                         {
-                          company: "Notion",
-                          role: "Design Eng.",
-                          tag: "Productivity",
-                          salary: "$160k",
+                          company: "Tesla",
+                          role: "Operations",
+                          tag: "Auto/Energy",
+                          salary: "$70k",
                         },
                       ],
                     },
                     {
-                      title: "Completed",
+                      title: "Offer! 🎉",
                       dot: "bg-emerald-400",
                       cards: [
                         {
-                          company: "Arc",
-                          role: "UX Engineer",
-                          tag: "Browser",
-                          salary: "$155k",
+                          company: "Figma",
+                          role: "Design Intern",
+                          tag: "Design",
+                          salary: "$50/hr",
                         },
                         {
-                          company: "Raycast",
-                          role: "iOS Developer",
-                          tag: "Tools",
-                          salary: "$170k",
+                          company: "Stripe",
+                          role: "BizOps Intern",
+                          tag: "Fintech",
+                          salary: "$48/hr",
                         },
                       ],
                     },

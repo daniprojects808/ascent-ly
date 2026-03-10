@@ -12,6 +12,8 @@ import {
   MousePointerClick,
   FileText,
   Users,
+  Check,
+  Quote,
 } from "lucide-react";
 
 export default async function Home() {
@@ -36,22 +38,61 @@ export default async function Home() {
       <Navbar />
       <Hero />
 
-      {/* Social proof / stats bar */}
+      {/* Social proof — student testimonials */}
       <section className="relative border-y border-white/[0.04] bg-[#08090c]">
-        <div className="max-w-[1200px] mx-auto px-6 py-12">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-20">
+        <div className="max-w-[1200px] mx-auto px-6 py-16 sm:py-20">
+          {/* Stat callout */}
+          <div className="text-center mb-14">
+            <p className="font-mono-data text-[11px] text-[#8b5cf6]/50 uppercase tracking-[0.2em] mb-4">
+              The reality
+            </p>
+            <p className="font-display text-[22px] sm:text-[28px] font-bold text-white/70 tracking-[-0.03em] leading-[1.2] max-w-xl mx-auto">
+              The average job seeker applies to{" "}
+              <span className="text-[#8b5cf6]">27 positions</span> before
+              landing an offer.
+            </p>
+            <p className="font-body text-[14px] text-white/25 mt-3">
+              Don&apos;t lose track. — Source: LinkedIn Economic Graph
+            </p>
+          </div>
+
+          {/* Testimonials */}
+          <div className="grid sm:grid-cols-3 gap-5 max-w-[1000px] mx-auto">
             {[
-              { value: "12,000+", label: "Applications tracked" },
-              { value: "3,200+", label: "Active users" },
-              { value: "68%", label: "More interviews" },
-              { value: "$0", label: "To start, forever" },
-            ].map((s, i) => (
-              <div key={i} className="text-center group">
-                <div className="text-[28px] sm:text-[32px] font-display font-bold text-white/80 tracking-[-0.03em] leading-none mb-1.5 group-hover:text-[#8b5cf6] transition-colors duration-300">
-                  {s.value}
-                </div>
-                <div className="text-[12px] font-body text-white/20 tracking-wide">
-                  {s.label}
+              {
+                quote:
+                  "I was applying to 25 internships and completely lost track. Ascent-ly was the only thing keeping me sane.",
+                name: "Justin J.",
+                detail: "CS Grad, UH Mānoa '24",
+              },
+              {
+                quote:
+                  "Wish I had this during recruiting season. My spreadsheet was a disaster. This actually made me feel in control.",
+                name: "Dani P.",
+                detail: "Marketing Grad, applied to 50+ roles",
+              },
+              {
+                quote:
+                  "Went from mass-applying on LinkedIn at 1am with no system to knowing exactly where I stand with every company.",
+                name: "Marcus T.",
+                detail: "BBA, UT Austin '24",
+              },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-7 hover:border-[#8b5cf6]/[0.12] hover:bg-white/[0.03] transition-all duration-300"
+              >
+                <Quote className="w-4 h-4 text-[#8b5cf6]/30 mb-4 rotate-180" />
+                <p className="font-body text-[14px] text-white/40 leading-[1.7] mb-5">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div>
+                  <div className="font-display text-[13px] font-bold text-white/60">
+                    {t.name}
+                  </div>
+                  <div className="font-mono-data text-[11px] text-white/20 mt-0.5">
+                    {t.detail}
+                  </div>
                 </div>
               </div>
             ))}
@@ -59,7 +100,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Features — editorial bento layout */}
+      {/* Features — reframed for students */}
       <section
         className="relative bg-[#08090c] py-28 sm:py-36 lg:py-44"
         id="features"
@@ -71,13 +112,13 @@ export default async function Home() {
               Features
             </p>
             <h2 className="font-display text-[36px] sm:text-[52px] lg:text-[64px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-6">
-              Everything you need.
+              Your whole job search.
               <br />
-              <span className="text-white/25">Nothing you don&apos;t.</span>
+              <span className="text-white/25">One place.</span>
             </h2>
-            <p className="font-body text-[16px] text-white/30 max-w-[440px] mx-auto leading-[1.7]">
-              Built for focus. Designed to disappear — giving you clarity
-              without getting in the way.
+            <p className="font-body text-[16px] text-white/30 max-w-[460px] mx-auto leading-[1.7]">
+              No more scattered spreadsheets, forgotten applications, or
+              &ldquo;wait, did I already apply there?&rdquo; moments.
             </p>
           </div>
 
@@ -93,30 +134,30 @@ export default async function Home() {
                     <Layers className="w-4.5 h-4.5 text-[#8b5cf6]/70" />
                   </div>
                   <h3 className="font-display text-[22px] sm:text-[26px] font-bold text-white/90 tracking-[-0.025em] mb-3">
-                    Visual Kanban pipeline
+                    See every application at a glance
                   </h3>
                   <p className="font-body text-[14px] text-white/30 leading-[1.7] max-w-sm">
-                    Three columns — Not Started, In Progress, Completed. Drag
-                    cards between stages with spring physics. Your entire job
-                    search at a glance.
+                    Three columns — Applied, Interviewing, Offer. Drag cards
+                    between stages as you hear back. Know exactly where you stand
+                    with every company.
                   </p>
                 </div>
                 {/* Mini kanban preview */}
                 <div className="relative z-10 mt-8 grid grid-cols-3 gap-2">
                   {[
                     {
-                      label: "Not Started",
-                      count: 4,
+                      label: "Applied",
+                      count: 12,
                       dot: "bg-violet-400",
                     },
                     {
-                      label: "In Progress",
-                      count: 7,
+                      label: "Interviewing",
+                      count: 5,
                       dot: "bg-cyan-400",
                     },
                     {
-                      label: "Completed",
-                      count: 12,
+                      label: "Offer!",
+                      count: 2,
                       dot: "bg-emerald-400",
                     },
                   ].map((col, i) => (
@@ -156,11 +197,12 @@ export default async function Home() {
                       <Zap className="w-4.5 h-4.5 text-cyan-400/70" />
                     </div>
                     <h3 className="font-display text-[18px] sm:text-[20px] font-bold text-white/90 tracking-[-0.02em] mb-2.5">
-                      Live metrics dashboard
+                      Know your numbers
                     </h3>
                     <p className="font-body text-[14px] text-white/30 leading-[1.7]">
-                      Animated counters show total applications, active stages,
-                      and offers. Numbers that actually mean something.
+                      Response rate, offer rate, and where you keep getting
+                      stuck. See which industries and roles are actually
+                      getting back to you.
                     </p>
                   </div>
                 </div>
@@ -171,11 +213,11 @@ export default async function Home() {
                       <Search className="w-4.5 h-4.5 text-emerald-400/70" />
                     </div>
                     <h3 className="font-display text-[18px] sm:text-[20px] font-bold text-white/90 tracking-[-0.02em] mb-2.5">
-                      Smart search & filters
+                      Filter by internship, full-time, remote
                     </h3>
                     <p className="font-body text-[14px] text-white/30 leading-[1.7]">
-                      Filter by work type, experience level, or industry.
-                      Results fade in real-time as you type.
+                      Find what you need in seconds. Search by company,
+                      role type, or location — results update as you type.
                     </p>
                   </div>
                 </div>
@@ -188,20 +230,20 @@ export default async function Home() {
                 {
                   icon: MousePointerClick,
                   color: "violet",
-                  title: "One-click capture",
-                  desc: "Save job listings from LinkedIn, Indeed, and Glassdoor directly into your board instantly.",
+                  title: "Add jobs in seconds",
+                  desc: "Paste a link or fill in the basics. Every application saved in one click — no more copy-pasting between tabs.",
                 },
                 {
                   icon: FileText,
                   color: "rose",
-                  title: "Card details & notes",
-                  desc: "Click any card to expand — full details, notes section, and a timeline of every status change.",
+                  title: "Notes & timeline for each app",
+                  desc: "Click any card to see the full story — your notes, salary info, and a timeline of every status change.",
                 },
                 {
                   icon: Users,
                   color: "sky",
-                  title: "Bulk operations",
-                  desc: "Shift-click to multi-select, then update, archive, or delete a batch of applications at once.",
+                  title: "Update a bunch at once",
+                  desc: "Got rejection emails? Select multiple applications and archive them in one click. Bulk actions save you time.",
                 },
               ].map((f, i) => (
                 <div
@@ -231,6 +273,70 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Built for the bulk apply era */}
+      <section className="relative bg-[#08090c] border-t border-white/[0.04] py-24 sm:py-32">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="max-w-[800px] mx-auto">
+            <div className="text-center mb-16">
+              <p className="font-mono-data text-[11px] text-[#8b5cf6]/60 uppercase tracking-[0.2em] mb-6">
+                We get it
+              </p>
+              <h2 className="font-display text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-5">
+                Built for the
+                <br />
+                <span className="text-gradient-amber">bulk apply era.</span>
+              </h2>
+              <p className="font-body text-[16px] text-white/30 max-w-md mx-auto leading-[1.7]">
+                You&apos;re not applying to 3 jobs. You&apos;re applying to 30.
+                That&apos;s a different problem — and it needs a different tool.
+              </p>
+            </div>
+
+            <div className="space-y-5 max-w-[560px] mx-auto">
+              {[
+                {
+                  text: "Applied but forgot the company name? We've got it.",
+                  emoji: "🔍",
+                },
+                {
+                  text: "Waiting to hear back from 8 places at once? Track them all.",
+                  emoji: "⏳",
+                },
+                {
+                  text: "Interviewing at 3 companies simultaneously? Stay sharp.",
+                  emoji: "🎯",
+                },
+                {
+                  text: "Getting ghosted and can't remember who? We remember.",
+                  emoji: "👻",
+                },
+                {
+                  text: "Need to follow up but lost the details? It's all here.",
+                  emoji: "📋",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="group flex items-start gap-4 p-4 rounded-xl border border-white/[0.04] bg-white/[0.015] hover:border-[#8b5cf6]/[0.12] hover:bg-white/[0.03] transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#8b5cf6]/[0.08] border border-[#8b5cf6]/[0.1] flex items-center justify-center">
+                    <Check className="w-3.5 h-3.5 text-[#8b5cf6]/70" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-body text-[15px] text-white/50 leading-[1.6] group-hover:text-white/70 transition-colors duration-300">
+                      {item.text}
+                    </span>
+                  </div>
+                  <span className="text-[18px] opacity-60 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                    {item.emoji}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How it works — horizontal numbered steps */}
       <section
         className="relative bg-[#08090c] border-t border-white/[0.04] py-28 sm:py-36"
@@ -242,9 +348,9 @@ export default async function Home() {
               How it works
             </p>
             <h2 className="font-display text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.04em] leading-[0.98]">
-              Up and running
+              Set up in 2 minutes.
               <br />
-              <span className="text-white/25">in minutes.</span>
+              <span className="text-white/25">Seriously.</span>
             </h2>
           </div>
 
@@ -255,18 +361,18 @@ export default async function Home() {
             {[
               {
                 step: "01",
-                title: "Add your applications",
-                desc: "Use the quick-add form or paste a URL. Every job in your pipeline in seconds.",
+                title: "Sign up (takes 30 seconds)",
+                desc: "Create your free account. No credit card, no trial countdown, no nonsense.",
               },
               {
                 step: "02",
-                title: "Move cards as you progress",
-                desc: "Drag cards between columns at each stage. Your metrics update instantly.",
+                title: "Add your applications",
+                desc: "Paste a job link or fill in the basics. Every app you've sent out, tracked in one place.",
               },
               {
                 step: "03",
-                title: "Land the offer",
-                desc: "See what's working, stay organized, and never lose track of an opportunity.",
+                title: "Track, follow up, get offers",
+                desc: "Drag cards as you hear back. Always know what's pending, what needs a follow-up, and where you got the offer.",
               },
             ].map((item, i) => (
               <div key={i} className="relative text-center group">
@@ -296,10 +402,15 @@ export default async function Home() {
               Pricing
             </p>
             <h2 className="font-display text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-[-0.04em] leading-[0.98] mb-5">
-              Simple pricing.
+              Free for all job seekers.
             </h2>
-            <p className="font-body text-[16px] text-white/30 max-w-sm mx-auto leading-[1.7]">
-              Start free. Upgrade when you need more.
+            <p className="font-body text-[16px] text-white/30 max-w-md mx-auto leading-[1.7]">
+              No credit card. No trial period. Just free.
+              <br />
+              <span className="text-white/20">
+                Upgrade later if you want extra features — but you probably
+                won&apos;t need to.
+              </span>
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[900px] mx-auto">
@@ -310,7 +421,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Final CTA — bold, confident */}
+      {/* Final CTA — bold, student-focused */}
       <section className="relative bg-[#08090c] border-t border-white/[0.04] py-32 sm:py-40 lg:py-48">
         {/* Ambient glow */}
         <div
@@ -321,36 +432,39 @@ export default async function Home() {
           }}
         />
         <div className="relative z-10 max-w-[900px] mx-auto px-6 text-center">
-          <h2 className="font-display text-[38px] sm:text-[56px] lg:text-[72px] font-extrabold text-white tracking-[-0.045em] leading-[0.95] mb-8">
-            Stop managing your
+          <h2 className="font-display text-[34px] sm:text-[50px] lg:text-[64px] font-extrabold text-white tracking-[-0.045em] leading-[0.95] mb-8">
+            The job market is brutal.
             <br />
-            job search in a{" "}
-            <span className="text-gradient-amber">spreadsheet.</span>
+            <span className="text-gradient-amber">
+              Be more organized than everyone else.
+            </span>
           </h2>
           <p className="font-body text-[16px] text-white/30 mb-12 max-w-md mx-auto leading-[1.7]">
-            Join thousands of professionals who replaced chaos with clarity —
-            and landed better jobs, faster.
+            Takes 2 minutes to set up. Free forever for students and recent
+            grads. Stop losing track — start landing offers.
           </p>
 
           {/* Check list */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 items-center justify-center mb-14">
-            {["Free to start", "No credit card", "Cancel anytime"].map(
-              (item, i) => (
-                <div key={i} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#8b5cf6]/60 flex-shrink-0" />
-                  <span className="text-[13px] font-body text-white/35">
-                    {item}
-                  </span>
-                </div>
-              ),
-            )}
+            {[
+              "Free forever",
+              "No credit card needed",
+              "Set up in 2 minutes",
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-[#8b5cf6]/60 flex-shrink-0" />
+                <span className="text-[13px] font-body text-white/35">
+                  {item}
+                </span>
+              </div>
+            ))}
           </div>
 
           <a
             href="/sign-up"
             className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#8b5cf6] text-white rounded-full text-[15px] font-semibold transition-all duration-200 hover:bg-[#7c3aed] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]"
           >
-            Get started free
+            Get Ascent-ly Free
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
           </a>
         </div>
