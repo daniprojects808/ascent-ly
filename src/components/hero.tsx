@@ -309,7 +309,7 @@ export default function Hero() {
                 <div className="hidden sm:grid grid-cols-3 gap-3 pt-1">
                   {[
                     {
-                      title: "Applied",
+                      title: "Not Started",
                       dot: "bg-violet-400",
                       cards: [
                         {
@@ -327,7 +327,7 @@ export default function Hero() {
                       ],
                     },
                     {
-                      title: "Interviewing",
+                      title: "In Progress",
                       dot: "bg-cyan-400",
                       cards: [
                         {
@@ -351,7 +351,7 @@ export default function Hero() {
                       ],
                     },
                     {
-                      title: "Offer! 🎉",
+                      title: "Done ✓",
                       dot: "bg-emerald-400",
                       cards: [
                         {

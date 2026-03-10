@@ -137,7 +137,7 @@ export default async function Home() {
                     See every application at a glance
                   </h3>
                   <p className="font-body text-[14px] text-white/30 leading-[1.7] max-w-sm">
-                    Three columns — Applied, Interviewing, Offer. Drag cards
+                    Three columns — Not Started, In Progress, Done. Drag cards
                     between stages as you hear back. Know exactly where you stand
                     with every company.
                   </p>
@@ -146,17 +146,17 @@ export default async function Home() {
                 <div className="relative z-10 mt-8 grid grid-cols-3 gap-2">
                   {[
                     {
-                      label: "Applied",
+                      label: "Not Started",
                       count: 12,
                       dot: "bg-violet-400",
                     },
                     {
-                      label: "Interviewing",
+                      label: "In Progress",
                       count: 5,
                       dot: "bg-cyan-400",
                     },
                     {
-                      label: "Offer!",
+                      label: "Done",
                       count: 2,
                       dot: "bg-emerald-400",
                     },

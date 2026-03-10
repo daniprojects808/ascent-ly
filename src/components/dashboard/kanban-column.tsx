@@ -38,7 +38,7 @@ export default function KanbanColumn({
     <div
       className={`flex flex-col rounded-xl border transition-all duration-300 ${
         isOver
-          ? "border-blue-300 dark:border-cyan-400/40 bg-blue-50/50 dark:bg-cyan-500/5 shadow-lg"
+          ? "border-violet-300 dark:border-[#8b5cf6]/40 bg-violet-50/50 dark:bg-[#8b5cf6]/5 shadow-lg"
           : "border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1e2028]"
       }`}
       style={{
@@ -54,11 +54,11 @@ export default function KanbanColumn({
             boxShadow: `0 0 12px ${color}40, 0 0 0 4px ${color}15`,
           }}
         />
-        <h3 className="text-sm font-bold text-gray-900 dark:text-[#f5f1e8] tracking-wide">
+        <h3 className="text-sm font-body font-bold text-gray-900 dark:text-[#f5f1e8] tracking-wide">
           {title}
         </h3>
         <span
-          className="ml-auto text-xs px-2 py-0.5 rounded-full font-semibold"
+          className="ml-auto text-xs font-mono-data px-2 py-0.5 rounded-full font-semibold"
           style={{
             backgroundColor: `${color}15`,
             color: `${color}cc`,
@@ -72,7 +72,7 @@ export default function KanbanColumn({
       <div
         ref={setNodeRef}
         className={`flex-1 p-3 space-y-2.5 min-h-[200px] transition-colors duration-300 ${
-          isOver ? "bg-blue-50/30 dark:bg-cyan-500/5" : ""
+          isOver ? "bg-violet-50/30 dark:bg-[#8b5cf6]/5" : ""
         }`}
       >
         <SortableContext
@@ -113,7 +113,7 @@ export default function KanbanColumn({
                 />
               </svg>
             </div>
-            <p className="text-xs text-gray-400 dark:text-gray-500">
+            <p className="text-xs font-body text-gray-400 dark:text-gray-500">
               Drag cards here
             </p>
           </div>

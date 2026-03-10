@@ -80,7 +80,7 @@ export default function MetricCard({
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 font-medium">
+          <span className="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 font-mono-data font-medium">
             {label}
           </span>
           {icon && (
@@ -95,7 +95,7 @@ export default function MetricCard({
 
         <div className="flex items-end gap-2">
           <span
-            className={`font-bold tracking-tight ${
+            className={`font-display font-bold tracking-tight ${
               size === "large" ? "text-6xl" : "text-4xl"
             }`}
             style={{ color }}
@@ -105,7 +105,7 @@ export default function MetricCard({
         </div>
 
         {subtitle && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{subtitle}</p>
+          <p className="text-xs font-body text-gray-500 dark:text-gray-400 mt-2">{subtitle}</p>
         )}
       </div>
     </div>

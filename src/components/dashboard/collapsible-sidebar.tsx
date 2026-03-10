@@ -94,7 +94,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
           <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
             <Briefcase className="w-3 h-3 text-white" />
           </div>
-          <span className="font-semibold text-sm text-gray-900 dark:text-white tracking-tight">Ascent-ly</span>
+          <span className="font-display font-bold text-sm text-gray-900 dark:text-white tracking-tight">Ascent-ly</span>
           <button
             onClick={() => setIsOpen(false)}
             className="ml-auto p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-colors"
@@ -105,7 +105,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
 
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5">
-          <p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600">
+          <p className="px-2 pb-2 text-[10px] font-mono-data font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600">
             Workspace
           </p>
           {navItems.map(({ icon: Icon, label, href }) => {
@@ -114,7 +114,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
               <button
                 key={href}
                 onClick={() => { router.push(href); setIsOpen(false); }}
-                className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-medium transition-all group
+                className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-body font-medium transition-all group
                   ${isActive
                     ? 'bg-gray-100 dark:bg-white/[0.08] text-gray-900 dark:text-white'
                     : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/[0.04] hover:text-gray-900 dark:hover:text-white'
@@ -128,12 +128,12 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
           })}
 
           <div className="pt-3 pb-1">
-            <p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600">
+            <p className="px-2 pb-2 text-[10px] font-mono-data font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600">
               Preferences
             </p>
             <button
               onClick={toggleTheme}
-              className="w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/[0.04] hover:text-gray-900 dark:hover:text-white transition-all group"
+              className="w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-body font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/[0.04] hover:text-gray-900 dark:hover:text-white transition-all group"
             >
               {isDarkMode
                 ? <Sun className="w-4 h-4 flex-shrink-0 text-gray-400 dark:text-gray-500 group-hover:text-violet-400 transition-colors" />
@@ -164,7 +164,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
 
           <button
             onClick={handleSignOut}
-            className="w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-500/[0.08] hover:text-red-600 dark:hover:text-red-400 transition-all group"
+            className="w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-body font-medium text-gray-500 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-500/[0.08] hover:text-red-600 dark:hover:text-red-400 transition-all group"
           >
             <LogOut className="w-4 h-4 flex-shrink-0 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors" />
             <span>Sign out</span>

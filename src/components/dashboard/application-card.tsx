@@ -1,7 +1,7 @@
 "use client";
 
 import type { Application } from "@/types/application";
-import { MapPin, DollarSign, Briefcase, GraduationCap, Building2, Heart, Trash2, Archive, ArchiveRestore } from "lucide-react";
+import { MapPin, DollarSign, Briefcase, GraduationCap, Building2, Heart, Trash2, Archive, ArchiveRestore, ExternalLink } from "lucide-react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import {
@@ -102,7 +102,7 @@ export default function ApplicationCard({
         onClick={() => onClick?.(application)}
         className={`group relative cursor-grab active:cursor-grabbing rounded-xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1a1d24] p-4 transition-all duration-200 hover:border-gray-300 dark:hover:border-white/[0.15] hover:scale-[1.02] hover:shadow-lg ${
           isDragging
-            ? "opacity-50 scale-105 shadow-2xl z-50 border-blue-300 dark:border-cyan-400/40"
+            ? "opacity-50 scale-105 shadow-2xl z-50 border-violet-300 dark:border-[#8b5cf6]/40"
             : application.is_archived
             ? "opacity-60"
             : ""
@@ -120,7 +120,7 @@ export default function ApplicationCard({
             <div className="flex items-center justify-between gap-2 mb-1">
               <div className="flex items-center gap-2 min-w-0 flex-1">
                 <Building2 className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0" />
-                <h4 className="text-sm font-bold text-gray-900 dark:text-[#f5f1e8] truncate">
+                <h4 className="text-sm font-body font-bold text-gray-900 dark:text-[#f5f1e8] truncate">
                   {application.company_name}
                 </h4>
               </div>
@@ -159,7 +159,7 @@ export default function ApplicationCard({
                 </button>
               </div>
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 truncate pl-[22px]">
+            <p className="text-xs font-body text-gray-600 dark:text-gray-400 truncate pl-[22px]">
               {application.position_title}
             </p>
           </div>
@@ -168,34 +168,50 @@ export default function ApplicationCard({
           {salary && (
             <div className="flex items-center gap-1.5 mb-2.5">
               <DollarSign className="w-3 h-3 text-emerald-600" />
-              <span className="text-xs text-emerald-600 font-semibold">
+              <span className="text-xs font-mono-data text-emerald-600 font-semibold">
                 {salary}
               </span>
+            </div>
+          )}
+
+          {/* Application Link */}
+          {application.job_url && (
+            <div className="flex items-center gap-1.5 mb-2.5">
+              <a
+                href={application.job_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 text-xs font-body text-violet-600 dark:text-[#8b5cf6] hover:text-violet-700 dark:hover:text-violet-300 hover:underline transition-colors truncate max-w-full"
+              >
+                <ExternalLink className="w-3 h-3 shrink-0" />
+                <span className="truncate">Application Link</span>
+              </a>
             </div>
           )}
 
           {/* Tags row */}
           <div className="flex flex-wrap gap-1.5">
             {application.location && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] font-body text-gray-600 dark:text-gray-400">
                 <MapPin className="w-2.5 h-2.5" />
                 {application.location}
               </span>
             )}
             {application.work_type && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] font-body text-gray-600 dark:text-gray-400">
                 <Briefcase className="w-2.5 h-2.5" />
                 {workTypeLabels[application.work_type] || application.work_type}
               </span>
             )}
             {application.experience_level && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08] text-[10px] font-body text-gray-600 dark:text-gray-400">
                 <GraduationCap className="w-2.5 h-2.5" />
                 {expLabels[application.experience_level] || application.experience_level}
               </span>
             )}
             {application.industry && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium"
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono-data font-medium"
                 style={{
                   backgroundColor: `${statusColor}10`,
                   color: statusColor,

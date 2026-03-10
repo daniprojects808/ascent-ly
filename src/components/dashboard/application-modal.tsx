@@ -44,7 +44,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
   const statusConfig = {
     not_started: { label: 'Not Started', color: '#8b5cf6', bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200' },
-    in_progress: { label: 'In Progress', color: '#2563eb', bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+    in_progress: { label: 'In Progress', color: '#06b6d4', bg: 'bg-cyan-50', text: 'text-cyan-700', border: 'border-cyan-200' },
     completed: { label: 'Completed', color: '#10b981', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
   };
 
@@ -67,10 +67,10 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
                 <Building2 className="w-5 h-5" style={{ color: status.color }} />
               </div>
               <div>
-                <DialogTitle className="text-xl font-bold tracking-tight">
+                <DialogTitle className="text-xl font-display font-bold tracking-tight">
                   {application.company_name}
                 </DialogTitle>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">{application.position_title}</p>
+                <p className="text-sm font-body text-gray-600 dark:text-gray-400 mt-0.5">{application.position_title}</p>
               </div>
             </div>
             <Button
@@ -110,7 +110,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
             {application.location && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <MapPin className="w-4.5 h-4.5 text-blue-600 dark:text-cyan-400 mt-0.5 shrink-0" />
+                <MapPin className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Location
@@ -122,7 +122,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
             {application.work_type && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <Briefcase className="w-4.5 h-4.5 text-blue-600 dark:text-cyan-400 mt-0.5 shrink-0" />
+                <Briefcase className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Work Type
@@ -134,7 +134,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
             {application.experience_level && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <GraduationCap className="w-4.5 h-4.5 text-blue-600 dark:text-cyan-400 mt-0.5 shrink-0" />
+                <GraduationCap className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Experience Level
@@ -146,7 +146,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
             {application.industry && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <FileText className="w-4.5 h-4.5 text-blue-600 dark:text-cyan-400 mt-0.5 shrink-0" />
+                <FileText className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Industry
@@ -158,7 +158,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
 
             {application.applied_date && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <Calendar className="w-4.5 h-4.5 text-blue-600 dark:text-cyan-400 mt-0.5 shrink-0" />
+                <Calendar className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div>
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Applied Date
@@ -213,7 +213,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
     <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
       <AlertDialogContent className="bg-white dark:bg-[#1a1d24] border-gray-200 dark:border-white/[0.08] text-gray-900 dark:text-[#f5f1e8]">
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-xl font-bold">Delete Application</AlertDialogTitle>
+          <AlertDialogTitle className="text-xl font-display font-bold">Delete Application</AlertDialogTitle>
           <AlertDialogDescription className="text-gray-600 dark:text-gray-400">
             Are you sure you want to delete the application for <span className="font-semibold">{application.company_name}</span>? This action cannot be undone.
           </AlertDialogDescription>

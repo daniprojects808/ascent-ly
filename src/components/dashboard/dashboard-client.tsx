@@ -280,11 +280,11 @@ export default function DashboardClient({
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-[#1a1d24] dark:to-[#12141a]">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-[#1a1d24] dark:to-[#12141a] bg-noise">
         <div className="flex flex-col items-center gap-4">
           <div className="relative w-12 h-12">
             <div className="absolute inset-0 rounded-full border-2 border-gray-200 dark:border-gray-700" />
-            <div className="absolute inset-0 rounded-full border-2 border-blue-600 dark:border-cyan-400 border-t-transparent animate-spin" />
+            <div className="absolute inset-0 rounded-full border-2 border-violet-500 dark:border-[#8b5cf6] border-t-transparent animate-spin" />
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Loading your applications...
@@ -295,25 +295,25 @@ export default function DashboardClient({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-[#1a1d24] dark:to-[#12141a]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-[#1a1d24] dark:to-[#12141a] bg-noise">
       <CollapsibleSidebar userEmail={userEmail} userName={userName} />
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         {/* Header */}
         <div className="flex items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <LayoutGrid className="w-4 h-4 text-blue-600/60 dark:text-cyan-400/60" />
-              <span className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 font-medium">
+              <LayoutGrid className="w-4 h-4 text-violet-500/60 dark:text-[#8b5cf6]/60" />
+              <span className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 font-mono-data font-medium">
                 Dashboard
               </span>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-[#f5f1e8]">
+            <h1 className="text-4xl font-display font-extrabold tracking-[-0.03em] text-gray-900 dark:text-[#f5f1e8]">
               Application Tracker
             </h1>
           </div>
           <Button
             onClick={() => setIsDialogOpen(true)}
-            className="rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white text-sm h-11 px-6 transition-all duration-200 hover:shadow-lg gap-2"
+            className="rounded-full bg-violet-600 hover:bg-violet-700 dark:bg-[#8b5cf6] dark:hover:bg-[#7c3aed] text-white text-sm font-semibold h-11 px-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] gap-2"
           >
             <Plus className="w-4 h-4" />
             Add Application
@@ -340,7 +340,7 @@ export default function DashboardClient({
           <MetricCard
             label="In Progress"
             value={inProgressCount}
-            color="#2563eb"
+            color="#06b6d4"
             icon={<CheckCircle2 className="w-4 h-4" />}
             delay={200}
           />
@@ -362,7 +362,7 @@ export default function DashboardClient({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by company, position, location..."
-                className="pl-10 bg-white dark:bg-[#1e2028] border-gray-200 dark:border-white/10 rounded-lg h-10 text-sm text-gray-900 dark:text-[#f5f1e8] placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-blue-500 dark:focus:border-cyan-500 focus:ring-blue-500 dark:focus:ring-cyan-500"
+                className="pl-10 bg-white dark:bg-[#1e2028] border-gray-200 dark:border-white/10 rounded-lg h-10 text-sm font-body text-gray-900 dark:text-[#f5f1e8] placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-violet-500 dark:focus:border-[#8b5cf6] focus:ring-violet-500 dark:focus:ring-[#8b5cf6]"
               />
               {searchQuery && (
                 <button
@@ -377,7 +377,7 @@ export default function DashboardClient({
 
           {/* Filter pills */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mr-1 font-medium">
+            <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mr-1 font-mono-data font-medium">
               Filters:
             </span>
             {/* Favorites filter */}
@@ -415,7 +415,7 @@ export default function DashboardClient({
                 onClick={() => toggleFilter("workType", opt.value)}
                 className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 border ${
                   activeFilters.workType.includes(opt.value)
-                    ? "bg-blue-50 border-blue-500 text-blue-700 font-medium dark:bg-cyan-500/15 dark:border-cyan-500 dark:text-cyan-300"
+                    ? "bg-violet-50 border-violet-500 text-violet-700 font-medium dark:bg-violet-500/15 dark:border-violet-500 dark:text-violet-300"
                     : "bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900 dark:bg-white/5 dark:border-white/10 dark:text-gray-400 dark:hover:border-white/20 dark:hover:text-gray-200"
                 }`}
               >
@@ -472,7 +472,7 @@ export default function DashboardClient({
               applications={inProgress}
               status="in_progress"
               onStatusChange={handleStatusChange}
-              color="#2563eb"
+              color="#06b6d4"
               onCardClick={setSelectedApp}
               onToggleFavorite={handleToggleFavorite}
               onDelete={handleDelete}
@@ -497,10 +497,10 @@ export default function DashboardClient({
             {activeApplication ? (
               <div className="opacity-90 rotate-2 scale-105">
                 <div className="bg-white dark:bg-[#1e2028] p-4 rounded-xl border border-gray-300 dark:border-white/10 shadow-2xl">
-                  <h4 className="text-sm font-bold text-gray-900 dark:text-[#f5f1e8]">
+                  <h4 className="text-sm font-body font-bold text-gray-900 dark:text-[#f5f1e8]">
                     {activeApplication.company_name}
                   </h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-xs font-body text-gray-600 dark:text-gray-400 mt-1">
                     {activeApplication.position_title}
                   </p>
                 </div>
@@ -513,7 +513,7 @@ export default function DashboardClient({
         <div className="fixed bottom-8 right-8 md:hidden">
           <Button
             onClick={() => setIsDialogOpen(true)}
-            className="rounded-full w-14 h-14 bg-blue-600 hover:bg-blue-700 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+            className="rounded-full w-14 h-14 bg-violet-600 hover:bg-violet-700 dark:bg-[#8b5cf6] dark:hover:bg-[#7c3aed] text-white shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300"
             size="icon"
           >
             <Plus className="w-6 h-6" />
