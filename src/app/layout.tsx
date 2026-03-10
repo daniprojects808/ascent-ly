@@ -1,35 +1,34 @@
 import { TempoInit } from "@/components/tempo-init";
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono, Manrope } from "next/font/google";
+import { DM_Sans, Fira_Code, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  // Space Grotesk doesn't ship with weight 800 in next/font/google
-  // Available: 300, 400, 500, 600, 700, variable
-  weight: ["700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({ 
+const firaCode = Fira_Code({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-mono-data",
-  display: "swap"
+  display: "swap",
 });
 
-const manrope = Manrope({ 
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-body",
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Job Application Tracker",
-  description: "Track your job applications with real-time metrics and visual progress tracking",
+  title: "Ascent-ly — Job Application Tracker",
+  description:
+    "The fastest way to land your next role. Track every application, interview, and offer in one place.",
 };
 
 export default function RootLayout({
@@ -39,7 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} ${manrope.variable}`}>
+      <body
+        className={`${dmSans.variable} ${firaCode.variable} ${inter.variable} font-body antialiased`}
+      >
         {children}
         <Toaster />
         <TempoInit />

@@ -50,7 +50,7 @@ function formatSalary(min?: number, max?: number) {
 export default function ApplicationCard({
   application,
   onClick,
-  statusColor = "#f59e0b",
+  statusColor = "#8b5cf6",
   onToggleFavorite,
   onDelete,
   onToggleArchive,
@@ -141,13 +141,13 @@ export default function ApplicationCard({
                 </button>
                 <button
                   onClick={handleArchiveClick}
-                  className="p-1 rounded-md hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-colors group/archive"
+                  className="p-1 rounded-md hover:bg-violet-50 dark:hover:bg-violet-500/10 transition-colors group/archive"
                   title={application.is_archived ? "Unarchive application" : "Archive application"}
                 >
                   {application.is_archived ? (
-                    <ArchiveRestore className="w-4 h-4 text-amber-500 dark:text-amber-400 transition-colors" />
+                    <ArchiveRestore className="w-4 h-4 text-violet-500 dark:text-violet-400 transition-colors" />
                   ) : (
-                    <Archive className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover/archive:text-amber-500 dark:group-hover/archive:text-amber-400 transition-colors" />
+                    <Archive className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover/archive:text-violet-500 dark:group-hover/archive:text-violet-400 transition-colors" />
                   )}
                 </button>
                 <button

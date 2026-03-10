@@ -43,7 +43,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete }: App
   };
 
   const statusConfig = {
-    not_started: { label: 'Not Started', color: '#f59e0b', bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+    not_started: { label: 'Not Started', color: '#8b5cf6', bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200' },
     in_progress: { label: 'In Progress', color: '#2563eb', bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
     completed: { label: 'Completed', color: '#10b981', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
   };

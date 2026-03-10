@@ -333,7 +333,7 @@ export default function DashboardClient({
           <MetricCard
             label="Not Started"
             value={notStartedCount}
-            color="#f59e0b"
+            color="#8b5cf6"
             icon={<Target className="w-4 h-4" />}
             delay={100}
           />
@@ -401,7 +401,7 @@ export default function DashboardClient({
               onClick={() => setShowArchivedOnly(!showArchivedOnly)}
               className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 border flex items-center gap-1.5 ${
                 showArchivedOnly
-                  ? "bg-amber-50 border-amber-500 text-amber-700 font-medium dark:bg-amber-500/15 dark:border-amber-500 dark:text-amber-300"
+                  ? "bg-violet-50 border-violet-500 text-violet-700 font-medium dark:bg-violet-500/15 dark:border-violet-500 dark:text-violet-300"
                   : "bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900 dark:bg-white/5 dark:border-white/10 dark:text-gray-400 dark:hover:border-white/20 dark:hover:text-gray-200"
               }`}
             >
@@ -460,7 +460,7 @@ export default function DashboardClient({
               applications={notStarted}
               status="not_started"
               onStatusChange={handleStatusChange}
-              color="#f59e0b"
+              color="#8b5cf6"
               onCardClick={setSelectedApp}
               onToggleFavorite={handleToggleFavorite}
               onDelete={handleDelete}

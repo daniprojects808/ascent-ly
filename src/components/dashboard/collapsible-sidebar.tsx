@@ -136,7 +136,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
               className="w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-md text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/[0.04] hover:text-gray-900 dark:hover:text-white transition-all group"
             >
               {isDarkMode
-                ? <Sun className="w-4 h-4 flex-shrink-0 text-gray-400 dark:text-gray-500 group-hover:text-amber-400 transition-colors" />
+                ? <Sun className="w-4 h-4 flex-shrink-0 text-gray-400 dark:text-gray-500 group-hover:text-violet-400 transition-colors" />
                 : <Moon className="w-4 h-4 flex-shrink-0 text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 transition-colors" />
               }
               <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>

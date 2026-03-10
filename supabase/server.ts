@@ -24,9 +24,8 @@ export const createClient = async () => {
               name,
               value,
             }));
-          } catch (error) {
-            // If cookies() is called in an environment where it's not allowed
-            console.error("Error accessing cookies:", error);
+          } catch {
+            // Expected: cookies may not be accessible in all environments
             return [];
           }
         },
@@ -35,9 +34,9 @@ export const createClient = async () => {
             cookiesToSet.forEach(({ name, value, options }) => {
               cookieStore.set(name, value, options);
             });
-          } catch (error) {
-            // If cookies() is called in an environment where it's not allowed
-            console.error("Error setting cookies:", error);
+          } catch {
+            // Expected: cookies can't be set during server component renders.
+            // This is safe to ignore — Supabase will retry on next request.
           }
         },
       },

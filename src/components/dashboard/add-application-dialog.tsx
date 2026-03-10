@@ -292,7 +292,7 @@ export default function AddApplicationDialog({
               <SelectContent className="bg-white dark:bg-[#1e2028] border-gray-200 dark:border-white/[0.08] text-gray-900 dark:text-[#f5f1e8] rounded-xl">
                 <SelectItem value="not_started">
                   <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-amber-400" />
+                    <span className="w-2 h-2 rounded-full bg-violet-400" />
                     Not Started
                   </span>
                 </SelectItem>
