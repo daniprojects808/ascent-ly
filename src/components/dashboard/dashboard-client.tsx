@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { createClient } from "../../../supabase/client";
 import {
   Plus,
@@ -31,7 +31,9 @@ import {
   useSensors,
   type DragStartEvent,
   type DragEndEvent,
+  type DragOverEvent,
 } from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 
 const FILTER_OPTIONS = {
   workType: [
@@ -71,6 +73,7 @@ export default function DashboardClient({
     experience: [],
   });
   const [activeId, setActiveId] = useState<string | null>(null);
+  const dragOriginalStatusRef = useRef<string | null>(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const supabase = useMemo(() => createClient(), []);
 
@@ -253,24 +256,87 @@ export default function DashboardClient({
     );
   }
 
-  function handleDragStart(event: DragStartEvent) {
-    setActiveId(event.active.id as string);
+  const COLUMN_IDS = ["not_started", "in_progress", "completed"];
+
+  function findColumnForCard(cardId: string): string | null {
+    const app = applications.find((a) => a.id === cardId);
+    return app ? app.status : null;
   }
 
-  function handleDragEnd(event: DragEndEvent) {
-    setActiveId(null);
+  function resolveDropColumn(overId: string): string | null {
+    if (COLUMN_IDS.includes(overId)) return overId;
+    return findColumnForCard(overId);
+  }
+
+  function handleDragStart(event: DragStartEvent) {
+    const draggedId = event.active.id as string;
+    const app = applications.find((a) => a.id === draggedId);
+    dragOriginalStatusRef.current = app ? app.status : null;
+    setActiveId(draggedId);
+  }
+
+  function handleDragOver(event: DragOverEvent) {
     const { active, over } = event;
     if (!over) return;
 
     const draggedAppId = active.id as string;
-    const targetColumn = over.id as string;
+    const overId = over.id as string;
+    const targetColumn = resolveDropColumn(overId);
+    if (!targetColumn) return;
 
-    // Check if dropped on a column
-    if (["not_started", "in_progress", "completed"].includes(targetColumn)) {
-      const app = applications.find((a) => a.id === draggedAppId);
-      if (app && app.status !== targetColumn) {
-        handleStatusChange(draggedAppId, targetColumn);
+    const app = applications.find((a) => a.id === draggedAppId);
+    if (!app || app.status === targetColumn) return;
+
+    // Optimistically move card to the target column during drag
+    setApplications((prev) =>
+      prev.map((a) =>
+        a.id === draggedAppId ? { ...a, status: targetColumn as ApplicationStatus } : a
+      )
+    );
+  }
+
+  function handleDragEnd(event: DragEndEvent) {
+    const originalStatus = dragOriginalStatusRef.current;
+    dragOriginalStatusRef.current = null;
+    setActiveId(null);
+
+    const { active, over } = event;
+    if (!over) {
+      // Dropped outside — revert to original status
+      if (originalStatus) {
+        setApplications((prev) =>
+          prev.map((a) =>
+            a.id === (active.id as string)
+              ? { ...a, status: originalStatus as ApplicationStatus }
+              : a
+          )
+        );
       }
+      return;
+    }
+
+    const draggedAppId = active.id as string;
+    const overId = over.id as string;
+    const targetColumn = resolveDropColumn(overId);
+    if (!targetColumn) return;
+
+    // Reorder within same column when dropped on another card
+    if (!COLUMN_IDS.includes(overId) && overId !== draggedAppId) {
+      const columnApps = applications.filter((a) => a.status === targetColumn);
+      const oldIndex = columnApps.findIndex((a) => a.id === draggedAppId);
+      const newIndex = columnApps.findIndex((a) => a.id === overId);
+      if (oldIndex !== -1 && newIndex !== -1 && oldIndex !== newIndex) {
+        const reordered = arrayMove(columnApps, oldIndex, newIndex);
+        setApplications((prev) => {
+          const others = prev.filter((a) => a.status !== targetColumn);
+          return [...others, ...reordered];
+        });
+      }
+    }
+
+    // Persist to DB if column actually changed
+    if (originalStatus && originalStatus !== targetColumn) {
+      handleStatusChange(draggedAppId, targetColumn);
     }
   }
 
@@ -452,6 +518,7 @@ export default function DashboardClient({
           sensors={sensors}
           collisionDetection={closestCorners}
           onDragStart={handleDragStart}
+          onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -531,6 +598,12 @@ export default function DashboardClient({
           isOpen={!!selectedApp}
           onClose={() => setSelectedApp(null)}
           onDelete={handleDelete}
+          onUpdate={(updated) => {
+            setApplications((prev) =>
+              prev.map((app) => (app.id === updated.id ? updated : app))
+            );
+            setSelectedApp(updated);
+          }}
         />
       </div>
     </div>

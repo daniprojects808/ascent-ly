@@ -178,7 +178,7 @@ export default function ApplicationCard({
           {application.job_url && (
             <div className="flex items-center gap-1.5 mb-2.5">
               <a
-                href={application.job_url}
+                href={application.job_url.startsWith('http://') || application.job_url.startsWith('https://') ? application.job_url : 'https://' + application.job_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
