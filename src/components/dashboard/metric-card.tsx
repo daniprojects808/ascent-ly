@@ -18,6 +18,7 @@ function useCountUp(target: number, duration: number = 1200, delay: number = 0) 
   const animationFrame = useRef<number | undefined>(undefined);
 
   useEffect(() => {
+    startTime.current = null;
     const timeout = setTimeout(() => {
       const animate = (timestamp: number) => {
         if (!startTime.current) startTime.current = timestamp;

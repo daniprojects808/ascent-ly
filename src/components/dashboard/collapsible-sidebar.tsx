@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { LayoutDashboard, User, LogOut, Moon, Sun, ChevronRight, Briefcase, PanelLeftOpen, PanelLeftClose } from 'lucide-react';
 import { createClient } from '../../../supabase/client';
 import { useRouter, usePathname } from 'next/navigation';
@@ -15,7 +15,7 @@ export default function CollapsibleSidebar({ userEmail, userName }: CollapsibleS
   const [isDarkMode, setIsDarkMode] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');

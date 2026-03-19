@@ -131,7 +131,7 @@ export default async function Home() {
                 <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#8b5cf6]/[0.03] rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 rounded-xl bg-[#8b5cf6]/[0.08] border border-[#8b5cf6]/[0.12] flex items-center justify-center mb-7">
-                    <Layers className="w-4.5 h-4.5 text-[#8b5cf6]/70" />
+                    <Layers className="w-[18px] h-[18px] text-[#8b5cf6]/70" />
                   </div>
                   <h3 className="font-display text-[22px] sm:text-[26px] font-bold text-white/90 tracking-[-0.025em] mb-3">
                     See every application at a glance
@@ -194,7 +194,7 @@ export default async function Home() {
                   <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-cyan-400/[0.03] rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <div className="w-10 h-10 rounded-xl bg-cyan-400/[0.08] border border-cyan-400/[0.12] flex items-center justify-center mb-6">
-                      <Zap className="w-4.5 h-4.5 text-cyan-400/70" />
+                      <Zap className="w-[18px] h-[18px] text-cyan-400/70" />
                     </div>
                     <h3 className="font-display text-[18px] sm:text-[20px] font-bold text-white/90 tracking-[-0.02em] mb-2.5">
                       Know your numbers
@@ -210,7 +210,7 @@ export default async function Home() {
                   <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-emerald-400/[0.03] rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <div className="w-10 h-10 rounded-xl bg-emerald-400/[0.08] border border-emerald-400/[0.12] flex items-center justify-center mb-6">
-                      <Search className="w-4.5 h-4.5 text-emerald-400/70" />
+                      <Search className="w-[18px] h-[18px] text-emerald-400/70" />
                     </div>
                     <h3 className="font-display text-[18px] sm:text-[20px] font-bold text-white/90 tracking-[-0.02em] mb-2.5">
                       Filter by internship, full-time, remote

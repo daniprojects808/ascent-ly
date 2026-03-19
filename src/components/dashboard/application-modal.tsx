@@ -201,7 +201,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
             {/* Details grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <DollarSign className="w-4.5 h-4.5 text-emerald-600 mt-0.5 shrink-0" />
+                <DollarSign className="w-[18px] h-[18px] text-emerald-600 mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Salary Range
@@ -232,7 +232,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <MapPin className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <MapPin className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Location
@@ -250,7 +250,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <Briefcase className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <Briefcase className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Work Type
@@ -276,7 +276,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <GraduationCap className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <GraduationCap className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Experience Level
@@ -303,7 +303,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <FileText className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <FileText className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Industry
@@ -321,7 +321,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <Calendar className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <Calendar className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Applied Date
@@ -345,7 +345,7 @@ export function ApplicationModal({ application, isOpen, onClose, onDelete, onUpd
             {/* Application Link */}
             {(isEditMode || application.job_url) && (
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/[0.08]">
-                <Link className="w-4.5 h-4.5 text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
+                <Link className="w-[18px] h-[18px] text-violet-600 dark:text-[#8b5cf6] mt-0.5 shrink-0" />
                 <div className="flex-1">
                   <p className="font-body text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     Application Link

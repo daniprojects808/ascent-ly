@@ -189,7 +189,7 @@ export default function DashboardClient({
     const validStatus = newStatus as ApplicationStatus;
     await supabase
       .from("applications")
-      .update({ status: newStatus })
+      .update({ status: newStatus, updated_at: new Date().toISOString() })
       .eq("id", id);
 
     setApplications((prev) =>

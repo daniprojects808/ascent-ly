@@ -123,7 +123,7 @@ export default function AddApplicationDialog({
         </DialogHeader>
 
         {/* Scrollable Body */}
-        <form onSubmit={handleSubmit} className="overflow-y-auto flex-1 px-5 py-5 space-y-5">
+        <form id="add-application-form" onSubmit={handleSubmit} className="overflow-y-auto flex-1 px-5 py-5 space-y-5">
 
           {/* ── Core Details ── */}
           <SectionDivider label="Core Details" />
